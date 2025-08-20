@@ -8,7 +8,7 @@ import {
   Shield,
   Award
 } from "lucide-react";
-import heroImage from "@/assets/hero-glass-art.webp";
+import heroImage from "/lovable-uploads/46f8abee-5fa3-4d03-8384-22e5bbd04a67.png";
 
 const Hero = () => {
   return (
@@ -17,12 +17,12 @@ const Hero = () => {
       <div className="absolute inset-0 z-0" style={{ backgroundAttachment: 'fixed' }}>
         <img 
           src={heroImage}
-          alt="Piezas artísticas de vidrio borosilicato ámbar con patrones únicos, arte premium en Argentina" 
+          alt="Varillas de vidrio borosilicato de colores en manos de artista, tubos transparentes y herramientas para soplado artístico profesional" 
           className="w-full h-full object-cover fixed-bg"
           loading="eager"
         />
-        {/* Brown Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brown-dark/25 via-brown-dark/15 to-brown-dark/25"></div>
+        {/* Dark Overlay for Better Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/30 to-black/40"></div>
       </div>
 
       {/* Content */}
