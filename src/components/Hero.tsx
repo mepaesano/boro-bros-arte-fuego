@@ -12,7 +12,7 @@ import heroImage from "/lovable-uploads/46f8abee-5fa3-4d03-8384-22e5bbd04a67.png
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center overflow-hidden">
+    <div className="relative min-h-[80vh] flex items-center overflow-hidden">
       {/* Background Image - Fixed */}
       <div className="absolute inset-0 z-0" style={{ backgroundAttachment: 'fixed' }}>
         <img 
@@ -22,36 +22,27 @@ const Hero = () => {
           loading="eager"
         />
         {/* Dark Overlay for Better Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/30 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/25 to-black/30"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-32 md:pt-40 pb-16">
-        <div className="max-w-4xl">
-          {/* Badge */}
-          <Badge 
-            variant="secondary" 
-            className="mb-6 text-sm font-medium bg-beige-primary/20 backdrop-blur-sm text-brown-dark"
-          >
-            <Award className="w-4 h-4 mr-2" />
-            Primera tienda especializada en Argentina
-          </Badge>
-
+      <div className="relative z-10 container mx-auto px-4 pt-20 md:pt-24 pb-8">
+        <div className="max-w-4xl space-y-4">
           {/* Main Title */}
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 text-white drop-shadow-2xl">
+          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white drop-shadow-2xl">
             Pioneros en<br />
             <span className="text-beige-light">Borosilicato</span><br />
             en Argentina
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-2xl font-medium drop-shadow-lg">
+          <p className="text-lg md:text-xl text-white/95 max-w-2xl font-medium drop-shadow-lg">
             Vidrio premium para soplado artístico. Calidad profesional, 
             resistencia excepcional, colores únicos.
           </p>
 
           {/* Benefits Chips */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-3">
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white">
               <Thermometer className="w-4 h-4 text-pink-light" />
               <span className="text-sm font-medium">Resistente 515°C</span>
@@ -67,10 +58,10 @@ const Hero = () => {
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-y-3 gap-x-4 md:gap-x-6">
             <Button 
               size="lg" 
-              className="bg-olive-green hover:bg-olive-green/90 text-white font-semibold px-8 py-4 h-12 text-lg shadow-strong transition-all"
+              className="bg-[#7A8D76] hover:bg-[#637863] text-white font-semibold px-8 py-4 h-12 text-lg shadow-lg hover:shadow-xl transition-all duration-200"
               asChild
             >
               <Link to="/tienda">
@@ -81,8 +72,7 @@ const Hero = () => {
             
             <Button 
               size="lg" 
-              variant="outline" 
-              className="bg-beige-primary/10 backdrop-blur-sm border-2 border-brown-dark text-white hover:bg-beige-primary/20 font-semibold px-8 py-4 h-12 text-lg transition-all"
+              className="bg-[#E9DFD3] text-[#5C3F2E] border-2 border-[#5C3F2E] hover:bg-[#5C3F2E] hover:text-white hover:border-[#3E2B20] font-semibold px-8 py-4 h-12 text-lg transition-all duration-200"
               asChild
             >
               <Link to="/borosilicato">
