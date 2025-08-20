@@ -8,35 +8,44 @@
 
 @layer base {
   :root {
-    /* Boro Bros Color Palette - Premium Glass Artistry */
-    --background: 39 25% 96%;
-    --foreground: 30 15% 15%;
+    /* Boro Bros Color Palette - Premium Glass Artistry (Based on Logo Colors) */
+    --background: 40 30% 97%;
+    --foreground: 220 20% 10%;
 
-    --card: 39 25% 98%;
-    --card-foreground: 30 15% 20%;
+    --card: 40 25% 98%;
+    --card-foreground: 220 15% 15%;
 
-    --popover: 39 25% 98%;
-    --popover-foreground: 30 15% 15%;
+    --popover: 40 25% 98%;
+    --popover-foreground: 220 20% 10%;
 
-    --primary: 30 15% 25%;
-    --primary-foreground: 39 25% 96%;
-    --primary-hover: 30 15% 20%;
+    --primary: 220 30% 15%;
+    --primary-foreground: 40 30% 97%;
+    --primary-hover: 220 35% 10%;
 
-    --secondary: 39 20% 85%;
-    --secondary-foreground: 30 15% 25%;
-    --secondary-hover: 39 20% 80%;
+    --secondary: 35 25% 88%;
+    --secondary-foreground: 220 20% 20%;
+    --secondary-hover: 35 25% 83%;
 
-    --tertiary: 70 20% 45%;
-    --tertiary-foreground: 39 25% 96%;
-    --tertiary-hover: 70 20% 40%;
+    --tertiary: 80 15% 35%;
+    --tertiary-foreground: 40 30% 97%;
+    --tertiary-hover: 80 18% 30%;
 
-    --accent: 210 15% 60%;
-    --accent-foreground: 39 25% 96%;
-    --accent-hover: 210 15% 55%;
+    --accent: 200 20% 45%;
+    --accent-foreground: 40 30% 97%;
+    --accent-hover: 200 25% 40%;
 
-    --soft: 340 25% 85%;
-    --soft-foreground: 30 15% 25%;
-    --soft-hover: 340 25% 80%;
+    --soft: 340 30% 82%;
+    --soft-foreground: 220 20% 20%;
+    --soft-hover: 340 30% 77%;
+
+    /* CTA Colors - High contrast */
+    --cta-primary: 80 25% 25%;
+    --cta-primary-foreground: 40 30% 97%;
+    --cta-primary-hover: 80 30% 20%;
+
+    --cta-secondary: 35 30% 40%;
+    --cta-secondary-foreground: 40 30% 97%;
+    --cta-secondary-hover: 35 35% 35%;
 
     --muted: 39 15% 90%;
     --muted-foreground: 30 10% 50%;
@@ -51,7 +60,9 @@
     --radius: 0.75rem;
 
     /* Premium Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--tertiary)) 50%, hsl(var(--accent)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cta-primary)) 0%, hsl(var(--tertiary)) 50%, hsl(var(--accent)) 100%);
+    --gradient-cta-primary: linear-gradient(135deg, hsl(var(--cta-primary)) 0%, hsl(var(--cta-primary-hover)) 100%);
+    --gradient-cta-secondary: linear-gradient(135deg, hsl(var(--cta-secondary)) 0%, hsl(var(--cta-secondary-hover)) 100%);
     --gradient-card: linear-gradient(180deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%);
     --gradient-glass: linear-gradient(145deg, hsl(var(--accent) / 0.1) 0%, hsl(var(--soft) / 0.2) 50%, hsl(var(--tertiary) / 0.1) 100%);
 

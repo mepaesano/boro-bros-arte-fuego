@@ -53,6 +53,16 @@ export default {
 					foreground: 'hsl(var(--soft-foreground))',
 					hover: 'hsl(var(--soft-hover))'
 				},
+				'cta-primary': {
+					DEFAULT: 'hsl(var(--cta-primary))',
+					foreground: 'hsl(var(--cta-primary-foreground))',
+					hover: 'hsl(var(--cta-primary-hover))'
+				},
+				'cta-secondary': {
+					DEFAULT: 'hsl(var(--cta-secondary))',
+					foreground: 'hsl(var(--cta-secondary-foreground))',
+					hover: 'hsl(var(--cta-secondary-hover))'
+				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
@@ -87,6 +97,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-cta-primary': 'var(--gradient-cta-primary)',
+				'gradient-cta-secondary': 'var(--gradient-cta-secondary)',
 				'gradient-card': 'var(--gradient-card)',
 				'gradient-glass': 'var(--gradient-glass)'
 			},

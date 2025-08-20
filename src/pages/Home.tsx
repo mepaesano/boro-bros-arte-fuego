@@ -2,11 +2,12 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import Footer from '@/components/Footer';
+import TrustSection from '@/components/TrustSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Flame, Shield, Sparkles, BookOpen, Users, Award } from 'lucide-react';
+import { ArrowRight, Flame, Shield, Sparkles, BookOpen, Users, Award, Zap, Eye, Target } from 'lucide-react';
 
 // Import product images
 import varillaClara from '@/assets/varilla-clara.jpg';
@@ -78,6 +79,8 @@ const Home = () => {
       <Header />
       <Hero />
 
+      <TrustSection />
+
       {/* Featured Products Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
@@ -102,7 +105,7 @@ const Home = () => {
 
           <div className="text-center">
             <Link to="/tienda">
-              <Button size="lg" className="bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth group">
+              <Button size="lg" className="bg-gradient-cta-primary text-cta-primary-foreground hover:scale-105 transition-smooth group shadow-strong">
                 Ver Todo el Catálogo
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -144,9 +147,92 @@ const Home = () => {
 
           <div className="text-center">
             <Link to="/borosilicato">
-              <Button variant="outline" size="lg" className="border-border hover:bg-secondary/50 transition-smooth">
+              <Button variant="outline" size="lg" className="bg-gradient-cta-secondary text-cta-secondary-foreground hover:scale-105 transition-smooth">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Aprende Más sobre el Borosilicato
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Educational Blog Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-tertiary/10 text-tertiary border-tertiary/20">
+              Contenido Educativo
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
+              Aprende sobre Vidrio Borosilicato
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Descubre técnicas de soplado artístico, propiedades del borosilicato y consejos de expertos 
+              para mejorar tus creaciones de vidrio a la flama.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <Card className="group hover:shadow-strong transition-smooth border-border/50 hover:border-tertiary/50">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <Zap className="h-8 w-8 text-tertiary group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Qué es el Vidrio Borosilicato y Por Qué Elegirlo
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Conoce las propiedades únicas del borosilicato, su resistencia térmica y 
+                  por qué es la elección preferida de artistas profesionales.
+                </p>
+                <Link to="/blog/vidrio-borosilicato-propiedades" className="text-tertiary hover:text-tertiary-hover font-medium inline-flex items-center">
+                  Leer más <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-strong transition-smooth border-border/50 hover:border-tertiary/50">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <Eye className="h-8 w-8 text-accent group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Técnicas de Soplado Artístico para Principiantes
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Guía paso a paso para comenzar en el mundo del flameworking y 
+                  crear tus primeras piezas artísticas.
+                </p>
+                <Link to="/blog/tecnicas-soplado-principiantes" className="text-accent hover:text-accent-hover font-medium inline-flex items-center">
+                  Leer más <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="group hover:shadow-strong transition-smooth border-border/50 hover:border-tertiary/50">
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <Target className="h-8 w-8 text-soft group-hover:scale-110 transition-transform" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Herramientas Esenciales para Trabajar Borosilicato
+                </h3>
+                <p className="text-muted-foreground mb-4">
+                  Conoce las herramientas básicas y avanzadas que necesitas para 
+                  trabajar profesionalmente con vidrio borosilicato.
+                </p>
+                <Link to="/blog/herramientas-esenciales-borosilicato" className="text-soft hover:text-soft-hover font-medium inline-flex items-center">
+                  Leer más <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center">
+            <Link to="/blog">
+              <Button size="lg" className="bg-gradient-cta-secondary text-cta-secondary-foreground hover:scale-105 transition-smooth">
+                <BookOpen className="mr-2 h-5 w-5" />
+                Ver Todos los Artículos
               </Button>
             </Link>
           </div>
@@ -191,13 +277,13 @@ const Home = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/tienda">
-                <Button size="lg" className="bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth">
+                <Button size="lg" className="bg-gradient-cta-primary text-cta-primary-foreground hover:scale-105 transition-smooth shadow-strong">
                   <Users className="mr-2 h-5 w-5" />
                   Explorar Productos
                 </Button>
               </Link>
               <Link to="/blog">
-                <Button variant="outline" size="lg" className="border-border hover:bg-secondary/50 transition-smooth">
+                <Button size="lg" className="bg-gradient-cta-secondary text-cta-secondary-foreground hover:scale-105 transition-smooth">
                   <BookOpen className="mr-2 h-5 w-5" />
                   Leer el Blog
                 </Button>
