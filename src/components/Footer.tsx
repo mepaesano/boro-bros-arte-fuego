@@ -9,12 +9,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src="/lovable-uploads/a21a223e-953a-4e2e-8a44-52ae60d78309.png" 
-                  alt="Boro Bros Logo" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold">BB</span>
               </div>
               <div>
                 <h3 className="text-xl font-heading font-bold">Boro Bros</h3>
@@ -93,31 +89,13 @@ const Footer = () => {
             <div className="pt-4">
               <h5 className="text-sm font-semibold mb-3">Síguenos</h5>
               <div className="flex space-x-3">
-                <a 
-                  href="https://instagram.com/borobros_ar" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center hover:bg-secondary/30 transition-colors"
-                  aria-label="Síguenos en Instagram"
-                >
+                <a href="#" className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center hover:bg-secondary/30 transition-colors">
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a 
-                  href="https://facebook.com/borobros.argentina" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center hover:bg-secondary/30 transition-colors"
-                  aria-label="Síguenos en Facebook"
-                >
+                <a href="#" className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center hover:bg-secondary/30 transition-colors">
                   <Facebook className="h-4 w-4" />
                 </a>
-                <a 
-                  href="https://youtube.com/@borobros" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center hover:bg-secondary/30 transition-colors"
-                  aria-label="Suscríbete a nuestro canal de YouTube"
-                >
+                <a href="#" className="w-8 h-8 bg-secondary/20 rounded-lg flex items-center justify-center hover:bg-secondary/30 transition-colors">
                   <Youtube className="h-4 w-4" />
                 </a>
               </div>
@@ -141,9 +119,6 @@ const Footer = () => {
               <Link to="/envios" className="hover:opacity-100 transition-opacity">
                 Política de Envíos
               </Link>
-              <Link to="/devoluciones" className="hover:opacity-100 transition-opacity">
-                Devoluciones
-              </Link>
             </div>
           </div>
         </div>
@@ -154,7 +129,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <span className="text-sm font-medium">
-              🚚 Envío gratis a todo el país en compras superiores a $50.000 | 📞 Consultas técnicas: +54 11 1234-5678
+              🚚 Envío gratis a todo el país en compras superiores a $50.000
             </span>
           </div>
         </div>

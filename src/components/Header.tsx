@@ -24,12 +24,8 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-medium overflow-hidden">
-              <img 
-                src="/lovable-uploads/a21a223e-953a-4e2e-8a44-52ae60d78309.png" 
-                alt="Boro Bros Logo" 
-                className="w-full h-full object-cover"
-              />
+            <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center shadow-medium">
+              <span className="text-primary-foreground font-bold text-xl">BB</span>
             </div>
             <div className="hidden sm:block">
               <h1 className="text-2xl font-heading font-bold text-primary">Boro Bros</h1>
@@ -54,14 +50,14 @@ const Header = () => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="relative hover:bg-secondary/50">
+            <Button variant="ghost" size="sm" className="relative">
               <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-2 -right-2 bg-tertiary text-tertiary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center animate-pulse">
+              <span className="absolute -top-2 -right-2 bg-tertiary text-tertiary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
                 0
               </span>
             </Button>
-            <Button size="sm" className="bg-gradient-cta-primary text-cta-primary-foreground hover:scale-105 transition-smooth shadow-medium">
-              <span className="hidden sm:inline">🚚</span> Envío Gratis
+            <Button size="sm" className="bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth">
+              Envío Gratis
             </Button>
           </div>
 
@@ -95,7 +91,7 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-4 pt-4 border-t border-border/50">
-                <Button size="sm" className="w-full bg-gradient-cta-primary text-cta-primary-foreground hover:scale-105 transition-smooth">
+                <Button size="sm" className="w-full bg-gradient-hero text-primary-foreground">
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   Carrito (0)
                 </Button>

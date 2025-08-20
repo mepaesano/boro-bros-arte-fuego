@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Flame, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import heroGlassblowing from '@/assets/hero-glassblowing.jpg';
+import heroImage from '@/assets/hero-borosilicate.jpg';
 
 const Hero = () => {
   return (
@@ -9,11 +9,11 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroGlassblowing} 
-          alt="Artista profesional trabajando vidrio borosilicato al fuego - Boro Bros Argentina" 
+          src={heroImage} 
+          alt="Varillas de vidrio borosilicato artísticas de Boro Bros" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/85 to-background/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
       </div>
 
       {/* Content */}
@@ -26,12 +26,12 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-6xl md:text-8xl font-heading font-bold mb-8 leading-tight">
-            <span className="text-primary drop-shadow-lg">Pioneros en</span>
+          <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+            <span className="gradient-text">Pioneros en</span>
             <br />
-            <span className="text-cta-primary drop-shadow-lg text-shadow-strong">Borosilicato</span>
+            <span className="text-primary">Borosilicato</span>
             <br />
-            <span className="text-primary drop-shadow-lg">en Argentina</span>
+            <span className="text-foreground">en Argentina</span>
           </h1>
 
           {/* Subtitle */}
@@ -59,13 +59,13 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Link to="/tienda">
-              <Button size="lg" className="bg-gradient-cta-primary text-cta-primary-foreground hover:scale-105 transition-smooth group shadow-strong">
+              <Button size="lg" className="bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth group">
                 Explorar Catálogo
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/borosilicato">
-              <Button size="lg" className="bg-gradient-cta-secondary text-cta-secondary-foreground hover:scale-105 transition-smooth">
+              <Button variant="outline" size="lg" className="border-border hover:bg-secondary/50 transition-smooth">
                 ¿Qué es el Borosilicato?
               </Button>
             </Link>
