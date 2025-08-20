@@ -1,126 +1,211 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ShoppingCart, Eye } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { ShoppingCart, Heart, Eye } from "lucide-react";
+import { useState } from "react";
 
 interface ProductCardProps {
   id: string;
   name: string;
-  image: string;
   price: number;
   originalPrice?: number;
-  diameter: string;
-  color: string;
+  image: string;
+  category: string;
   stock: number;
-  isNew?: boolean;
+  rating?: number;
   isFeatured?: boolean;
+  specifications?: {
+    diameter?: string;
+    length?: string;
+    coefficient?: string;
+    temperature?: string;
+  };
 }
 
 const ProductCard = ({ 
   id, 
   name, 
-  image, 
   price, 
   originalPrice, 
-  diameter, 
-  color, 
+  image, 
+  category, 
   stock, 
-  isNew, 
-  isFeatured 
+  rating = 5,
+  isFeatured = false,
+  specifications 
 }: ProductCardProps) => {
-  const handleAddToCart = () => {
-    // TODO: Implement cart functionality
-    console.log('Agregar al carrito:', id);
-  };
+  const [isLiked, setIsLiked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleViewProduct = () => {
-    // TODO: Implement product view
-    console.log('Ver producto:', id);
+  const handleAddToCart = async () => {
+    setIsLoading(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsLoading(false);
+    // TODO: Add to cart functionality
   };
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
+      minimumFractionDigits: 0
     }).format(price);
   };
 
+  const monthlyPayment = Math.ceil(price / 12);
+
   return (
-    <Card className="group relative overflow-hidden bg-gradient-card border-border/50 hover:border-tertiary/50 transition-smooth hover:shadow-medium">
-      {/* Product Image */}
-      <div className="relative aspect-square overflow-hidden">
-        <img 
-          src={image} 
-          alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        
-        {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
-          {isNew && <Badge className="bg-tertiary text-tertiary-foreground">Nuevo</Badge>}
-          {isFeatured && <Badge className="bg-accent text-accent-foreground">Destacado</Badge>}
-          {stock < 5 && stock > 0 && <Badge variant="destructive">Últimas unidades</Badge>}
-          {stock === 0 && <Badge variant="secondary">Sin stock</Badge>}
-        </div>
+    <Card className="group hover:shadow-strong transition-all duration-300 hover:-translate-y-1 bg-card border-border/50">
+      <div className="relative">
+        {/* Product Image */}
+        <div className="aspect-square overflow-hidden rounded-t-lg bg-secondary/30">
+          <img 
+            src={image} 
+            alt={name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            loading="lazy"
+          />
+          
+          {/* Overlay Actions */}
+          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+            <div className="flex gap-2">
+              <Button 
+                size="icon" 
+                variant="secondary"
+                className="bg-background/90 backdrop-blur-sm hover:bg-background"
+              >
+                <Eye className="h-4 w-4" />
+              </Button>
+              <Button 
+                size="icon" 
+                variant="secondary"
+                className={`bg-background/90 backdrop-blur-sm hover:bg-background ${
+                  isLiked ? 'text-red-500' : ''
+                }`}
+                onClick={() => setIsLiked(!isLiked)}
+              >
+                <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
+              </Button>
+            </div>
+          </div>
 
-        {/* Quick Actions */}
-        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <Button 
-            size="sm" 
-            variant="secondary" 
-            className="w-10 h-10 p-0 shadow-medium"
-            onClick={handleViewProduct}
-          >
-            <Eye className="h-4 w-4" />
-          </Button>
-        </div>
-
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-      </div>
-
-      <CardContent className="p-4">
-        {/* Product Info */}
-        <div className="mb-3">
-          <h3 className="font-semibold text-foreground group-hover:text-tertiary transition-colors">
-            {name}
-          </h3>
-          <div className="flex items-center gap-3 mt-1">
-            <span className="text-sm text-muted-foreground">Ø {diameter}</span>
-            <span className="text-sm text-muted-foreground">•</span>
-            <span className="text-sm text-muted-foreground capitalize">{color}</span>
+          {/* Badges */}
+          <div className="absolute top-3 left-3 flex flex-col gap-2">
+            {isFeatured && (
+              <Badge className="bg-accent text-accent-foreground">
+                Destacado
+              </Badge>
+            )}
+            {originalPrice && (
+              <Badge className="bg-destructive text-destructive-foreground">
+                -{Math.round(((originalPrice - price) / originalPrice) * 100)}%
+              </Badge>
+            )}
+            {stock < 5 && stock > 0 && (
+              <Badge variant="outline" className="bg-background/90">
+                Solo {stock} left
+              </Badge>
+            )}
           </div>
         </div>
 
-        {/* Price */}
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-lg font-bold text-primary">{formatPrice(price)}</span>
-          {originalPrice && (
-            <span className="text-sm text-muted-foreground line-through">
-              {formatPrice(originalPrice)}
+        <CardContent className="p-4">
+          {/* Category */}
+          <p className="text-sm text-muted-foreground mb-2 font-medium">
+            {category}
+          </p>
+
+          {/* Product Name */}
+          <h3 className="font-heading font-semibold text-lg mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+            {name}
+          </h3>
+
+          {/* Specifications */}
+          {specifications && (
+            <div className="grid grid-cols-2 gap-2 mb-3 text-xs text-muted-foreground">
+              {specifications.diameter && (
+                <div>
+                  <span className="font-medium">Diámetro:</span> {specifications.diameter}
+                </div>
+              )}
+              {specifications.length && (
+                <div>
+                  <span className="font-medium">Largo:</span> {specifications.length}
+                </div>
+              )}
+              {specifications.coefficient && (
+                <div>
+                  <span className="font-medium">Coef:</span> {specifications.coefficient}
+                </div>
+              )}
+              {specifications.temperature && (
+                <div>
+                  <span className="font-medium">Temp:</span> {specifications.temperature}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Rating */}
+          <div className="flex items-center gap-1 mb-3">
+            {[...Array(5)].map((_, i) => (
+              <span 
+                key={i} 
+                className={`text-sm ${
+                  i < rating ? 'text-yellow-400' : 'text-muted-foreground'
+                }`}
+              >
+                ★
+              </span>
+            ))}
+            <span className="text-xs text-muted-foreground ml-1">
+              ({rating}/5)
             </span>
-          )}
-        </div>
+          </div>
 
-        {/* Stock Info */}
-        <div className="mb-4">
-          {stock > 0 ? (
-            <p className="text-sm text-tertiary font-medium">Stock disponible: {stock} unidades</p>
-          ) : (
-            <p className="text-sm text-destructive font-medium">Sin stock</p>
-          )}
-        </div>
+          {/* Price */}
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-2xl font-bold text-primary">
+                {formatPrice(price)}
+              </span>
+              {originalPrice && (
+                <span className="text-sm text-muted-foreground line-through">
+                  {formatPrice(originalPrice)}
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-muted-foreground">
+              12 cuotas sin interés de {formatPrice(monthlyPayment)}
+            </p>
+            <p className="text-xs text-tertiary font-medium mt-1">
+              Envío gratis desde $50.000
+            </p>
+          </div>
 
-        {/* Add to Cart Button */}
-        <Button 
-          className="w-full bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth group/btn"
-          onClick={handleAddToCart}
-          disabled={stock === 0}
-        >
-          <ShoppingCart className="h-4 w-4 mr-2 group-hover/btn:animate-pulse" />
-          {stock > 0 ? 'Agregar al Carrito' : 'Sin Stock'}
-        </Button>
-      </CardContent>
+          {/* Add to Cart Button */}
+          <Button 
+            className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold h-11"
+            onClick={handleAddToCart}
+            disabled={stock === 0 || isLoading}
+          >
+            {isLoading ? (
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+                Agregando...
+              </div>
+            ) : stock === 0 ? (
+              'Sin Stock'
+            ) : (
+              <>
+                <ShoppingCart className="w-4 h-4 mr-2" />
+                Agregar al Carrito
+              </>
+            )}
+          </Button>
+        </CardContent>
+      </div>
     </Card>
   );
 };

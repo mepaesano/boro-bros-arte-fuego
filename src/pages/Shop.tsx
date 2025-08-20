@@ -25,10 +25,12 @@ const Shop = () => {
       name: 'Varilla Borosilicato Clara 7mm',
       image: varillaClara,
       price: 3500,
+      category: 'Varillas',
       diameter: '7mm',
       color: 'transparente',
       stock: 15,
-      isFeatured: true
+      isFeatured: true,
+      specifications: { diameter: '7mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
       id: '2',

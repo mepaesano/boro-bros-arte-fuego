@@ -2,41 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Boro Bros Premium Design System - Inspired by glass artistry and minimalist elegance */
+/* Boro Bros Premium Design System - Borosilicate Glass Artistry */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Boro Bros Color Palette - Premium Glass Artistry */
-    --background: 39 25% 96%;
-    --foreground: 30 15% 15%;
+    /* Boro Bros Color Palette - Based on Logo Colors */
+    --background: 39 30% 90%; /* Beige #E9DFD3 */
+    --foreground: 30 35% 18%; /* Marrón oscuro #5C3F2E */
 
-    --card: 39 25% 98%;
-    --card-foreground: 30 15% 20%;
+    --card: 39 30% 92%;
+    --card-foreground: 30 35% 20%;
 
-    --popover: 39 25% 98%;
-    --popover-foreground: 30 15% 15%;
+    --popover: 39 30% 92%;
+    --popover-foreground: 30 35% 18%;
 
-    --primary: 30 15% 25%;
-    --primary-foreground: 39 25% 96%;
-    --primary-hover: 30 15% 20%;
+    --primary: 30 35% 18%; /* Marrón oscuro #5C3F2E */
+    --primary-foreground: 39 30% 90%;
+    --primary-hover: 30 35% 15%;
 
-    --secondary: 39 20% 85%;
-    --secondary-foreground: 30 15% 25%;
-    --secondary-hover: 39 20% 80%;
+    --secondary: 39 30% 90%; /* Beige #E9DFD3 */
+    --secondary-foreground: 30 35% 18%;
+    --secondary-hover: 39 30% 85%;
 
-    --tertiary: 70 20% 45%;
-    --tertiary-foreground: 39 25% 96%;
-    --tertiary-hover: 70 20% 40%;
+    --tertiary: 83 15% 50%; /* Verde oliva #7A8D76 */
+    --tertiary-foreground: 39 30% 90%;
+    --tertiary-hover: 83 15% 45%;
 
-    --accent: 210 15% 60%;
-    --accent-foreground: 39 25% 96%;
-    --accent-hover: 210 15% 55%;
+    --accent: 210 35% 35%; /* Azul grisáceo #3C587A */
+    --accent-foreground: 39 30% 90%;
+    --accent-hover: 210 35% 30%;
 
-    --soft: 340 25% 85%;
-    --soft-foreground: 30 15% 25%;
-    --soft-hover: 340 25% 80%;
+    --soft: 12 45% 75%; /* Rosa claro #E7A8A1 */
+    --soft-foreground: 30 35% 18%;
+    --soft-hover: 12 45% 70%;
 
     --muted: 39 15% 90%;
     --muted-foreground: 30 10% 50%;
