@@ -36,20 +36,16 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
+            <Link 
+              to="/" 
+              className="flex items-center transition-opacity hover:opacity-80"
+            >
               <img 
-                src="/lovable-uploads/logo-boro-bros.png" 
-                alt="Boro Bros Logo" 
-                className="h-10 w-auto"
+                src="/lovable-uploads/46f8abee-5fa3-4d03-8384-22e5bbd04a67.png" 
+                alt="Boro Bros - Pioneros en Borosilicato" 
+                className="h-12 w-auto max-w-[180px] object-contain"
+                style={{ imageRendering: 'crisp-edges' }}
               />
-              <div className="hidden sm:block">
-                <h2 className="font-heading font-bold text-lg text-primary">
-                  Boro Bros
-                </h2>
-                <p className="text-xs text-muted-foreground -mt-1">
-                  Pioneros en Borosilicato
-                </p>
-              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -105,21 +101,14 @@ const Header = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-72">
                   <div className="flex flex-col gap-4 mt-6">
-                    <div className="flex items-center gap-3 pb-4 border-b">
+                    <Link to="/" className="flex items-center pb-4 border-b">
                       <img 
-                        src="/lovable-uploads/logo-boro-bros.png" 
-                        alt="Boro Bros" 
-                        className="h-8 w-auto"
+                        src="/lovable-uploads/46f8abee-5fa3-4d03-8384-22e5bbd04a67.png" 
+                        alt="Boro Bros - Pioneros en Borosilicato" 
+                        className="h-10 w-auto max-w-[160px] object-contain"
+                        style={{ imageRendering: 'crisp-edges' }}
                       />
-                      <div>
-                        <h3 className="font-heading font-bold text-primary">
-                          Boro Bros
-                        </h3>
-                        <p className="text-xs text-muted-foreground">
-                          Pioneros en Borosilicato
-                        </p>
-                      </div>
-                    </div>
+                    </Link>
                     
                     <nav className="flex flex-col gap-2">
                       {navigation.map((item) => (
