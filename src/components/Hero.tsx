@@ -8,68 +8,60 @@ import {
   Shield,
   Award
 } from "lucide-react";
-import heroImage from "@/assets/hero-glassblowing.jpg";
+import heroImage from "@/assets/hero-glass-art.webp";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+    <div className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Image - Fixed */}
+      <div className="absolute inset-0 z-0" style={{ backgroundAttachment: 'fixed' }}>
         <img 
           src={heroImage}
-          alt="Artista soplando vidrio borosilicato a la flama" 
-          className="w-full h-full object-cover"
+          alt="Piezas artísticas de vidrio borosilicato ámbar con patrones únicos, arte premium en Argentina" 
+          className="w-full h-full object-cover fixed-bg"
           loading="eager"
         />
-        {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-primary/20 to-transparent"></div>
+        {/* Brown Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brown-dark/25 via-brown-dark/15 to-brown-dark/25"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 pt-24 pb-16">
+      <div className="relative z-10 container mx-auto px-4 pt-32 md:pt-40 pb-16">
         <div className="max-w-4xl">
           {/* Badge */}
           <Badge 
             variant="secondary" 
-            className="mb-6 text-sm font-medium bg-secondary/90 backdrop-blur-sm"
+            className="mb-6 text-sm font-medium bg-beige-primary/20 backdrop-blur-sm text-brown-dark"
           >
             <Award className="w-4 h-4 mr-2" />
             Primera tienda especializada en Argentina
           </Badge>
 
           {/* Main Title */}
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6">
-            <span className="text-primary-foreground drop-shadow-lg">
-              Pioneros en
-            </span>
-            <br />
-            <span className="text-tertiary drop-shadow-lg">
-              Borosilicato
-            </span>
-            <br />
-            <span className="text-primary-foreground drop-shadow-lg">
-              en Argentina
-            </span>
+          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 text-white drop-shadow-2xl">
+            Pioneros en<br />
+            <span className="text-beige-light">Borosilicato</span><br />
+            en Argentina
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl font-medium drop-shadow">
+          <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-2xl font-medium drop-shadow-lg">
             Vidrio premium para soplado artístico. Calidad profesional, 
             resistencia excepcional, colores únicos.
           </p>
 
           {/* Benefits Chips */}
           <div className="flex flex-wrap gap-3 mb-8">
-            <div className="flex items-center gap-2 bg-background/90 backdrop-blur-sm rounded-full px-4 py-2">
-              <Thermometer className="w-4 h-4 text-accent" />
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white">
+              <Thermometer className="w-4 h-4 text-pink-light" />
               <span className="text-sm font-medium">Resistente 515°C</span>
             </div>
-            <div className="flex items-center gap-2 bg-background/90 backdrop-blur-sm rounded-full px-4 py-2">
-              <Shield className="w-4 h-4 text-tertiary" />
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white">
+              <Shield className="w-4 h-4 text-olive-green" />
               <span className="text-sm font-medium">Coeficiente 33</span>
             </div>
-            <div className="flex items-center gap-2 bg-background/90 backdrop-blur-sm rounded-full px-4 py-2">
-              <Palette className="w-4 h-4 text-soft" />
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white">
+              <Palette className="w-4 h-4 text-beige-light" />
               <span className="text-sm font-medium">Colores Artísticos</span>
             </div>
           </div>
@@ -78,7 +70,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               size="lg" 
-              className="bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold px-8 py-4 h-auto text-lg shadow-strong"
+              className="bg-olive-green hover:bg-olive-green/90 text-white font-semibold px-8 py-4 h-12 text-lg shadow-strong transition-all"
               asChild
             >
               <Link to="/tienda">
@@ -90,7 +82,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-secondary/90 backdrop-blur-sm border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary font-semibold px-8 py-4 h-auto text-lg"
+              className="bg-beige-primary/10 backdrop-blur-sm border-2 border-brown-dark text-white hover:bg-beige-primary/20 font-semibold px-8 py-4 h-12 text-lg transition-all"
               asChild
             >
               <Link to="/borosilicato">

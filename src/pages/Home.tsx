@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import Footer from '@/components/Footer';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -17,34 +18,55 @@ const Home = () => {
   const featuredProducts = [
     {
       id: '1',
-      name: 'Varilla Borosilicato Clara',
+      name: 'Varilla Borosilicato Clara 7mm',
       image: varillaClara,
       price: 3500,
+      category: 'Varillas',
       diameter: '7mm',
       color: 'transparente',
       stock: 15,
-      isFeatured: true
+      isFeatured: true,
+      specifications: {
+        diameter: '7mm',
+        length: '33cm',
+        coefficient: '33',
+        temperature: '515°C'
+      }
     },
     {
       id: '2',
-      name: 'Varilla Borosilicato Azul Cobalto',
+      name: 'Varilla Borosilicato Azul Cobalto 5mm',
       image: varillaAzul,
       price: 4200,
       originalPrice: 4800,
+      category: 'Varillas',
       diameter: '5mm',
       color: 'azul cobalto',
       stock: 8,
-      isNew: true
+      isNew: true,
+      specifications: {
+        diameter: '5mm',
+        length: '33cm',
+        coefficient: '33',
+        temperature: '515°C'
+      }
     },
     {
       id: '3',
-      name: 'Varilla Borosilicato Ámbar',
+      name: 'Varilla Borosilicato Ámbar 6mm',
       image: varillaAmbar,
       price: 3800,
+      category: 'Varillas',
       diameter: '6mm',
       color: 'ámbar',
       stock: 12,
-      isFeatured: true
+      isFeatured: true,
+      specifications: {
+        diameter: '6mm',
+        length: '33cm',
+        coefficient: '33',
+        temperature: '515°C'
+      }
     }
   ];
 
@@ -208,6 +230,7 @@ const Home = () => {
       </section>
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 };

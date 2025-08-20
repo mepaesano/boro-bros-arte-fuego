@@ -176,9 +176,24 @@
     }
   }
 
-  /* Smooth transitions */
-  .transition-smooth {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Custom colors matching the logo palette */
+  --beige-primary: 233 223 211; /* #E9DFD3 */
+  --beige-light: 240 230 220; /* lighter beige for text */
+  --brown-dark: 92 63 46; /* #5C3F2E */
+  --olive-green: 122 141 118; /* #7A8D76 */
+  --blue-grayish: 60 88 122; /* #3C587A */  
+  --pink-light: 231 168 161; /* #E7A8A1 */
+
+  /* Fixed background for hero */
+  .fixed-bg {
+    background-attachment: fixed;
+  }
+
+  /* Mobile optimization for hero */
+  @media (max-width: 768px) {
+    .fixed-bg {
+      background-attachment: scroll;
+    }
   }
 }
 
