@@ -76,7 +76,7 @@ const Hero = () => {
               asChild
             >
               <Link to="/borosilicato">
-                ¿Qué es el Borosilicato?
+                Aprende Más sobre el Borosilicato
               </Link>
             </Button>
           </div>

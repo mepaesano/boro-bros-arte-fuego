@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Thermometer, Shield, Zap, Flame, Beaker, Star, ChevronRight } from 'lucide-react';
+import { ArrowRight, Thermometer, Shield, Zap, Flame, Beaker, Star, ChevronRight, BookOpen, Calendar, Clock, User, Lightbulb } from 'lucide-react';
+import blogHero from '@/assets/blog-hero.jpg';
 
 const Borosilicate = () => {
   const properties = [
@@ -89,6 +90,85 @@ const Borosilicate = () => {
     'Trabaja en secciones para piezas complejas',
     'Mantén temperatura constante durante el proceso'
   ];
+
+  // Blog content merged here
+  const featuredPost = {
+    id: '1',
+    title: 'Guía Completa: Introducción al Vidrio a la Flama',
+    excerpt: 'Descubre los fundamentos del soplado de vidrio con borosilicato. Una guía completa para principiantes que quieren adentrarse en este arte milenario.',
+    image: blogHero,
+    author: 'Carlos Mendoza',
+    date: '15 de Marzo, 2024',
+    readTime: '8 min',
+    category: 'Técnicas',
+    featured: true
+  };
+
+  const educationalPosts = [
+    {
+      id: '2',
+      title: '¿Qué es el Borosilicato y Por Qué es Superior?',
+      excerpt: 'Conoce las propiedades únicas del vidrio borosilicato que lo convierten en la elección preferida de artistas profesionales.',
+      author: 'María González',
+      date: '12 de Marzo, 2024',
+      readTime: '5 min',
+      category: 'Educativo'
+    },
+    {
+      id: '3',
+      title: 'Herramientas Esenciales para Soplado Artístico',
+      excerpt: 'Una guía completa de las herramientas indispensables que todo artista del vidrio debe tener en su taller.',
+      author: 'Roberto Silva',
+      date: '10 de Marzo, 2024',
+      readTime: '6 min',
+      category: 'Herramientas'
+    },
+    {
+      id: '4',
+      title: 'Técnicas de Coloración en Borosilicato',
+      excerpt: 'Aprende las diferentes técnicas para incorporar color en tus creaciones de vidrio borosilicato.',
+      author: 'Ana Rodríguez',
+      date: '8 de Marzo, 2024',
+      readTime: '7 min',
+      category: 'Técnicas'
+    },
+    {
+      id: '5',
+      title: 'Seguridad en el Taller de Vidrio',
+      excerpt: 'Protocolo de seguridad esencial para trabajar con vidrio a altas temperaturas de manera segura.',
+      author: 'Diego López',
+      date: '5 de Marzo, 2024',
+      readTime: '4 min',
+      category: 'Seguridad'
+    },
+    {
+      id: '6',
+      title: 'Historia del Vidrio Borosilicato en Argentina',
+      excerpt: 'Un recorrido por la historia y evolución del trabajo con borosilicato en nuestro país.',
+      author: 'Laura Martínez',
+      date: '3 de Marzo, 2024',
+      readTime: '9 min',
+      category: 'Historia'
+    }
+  ];
+
+  const categories = [
+    { name: 'Técnicas', count: 12, icon: <Flame className="h-4 w-4" /> },
+    { name: 'Educativo', count: 8, icon: <BookOpen className="h-4 w-4" /> },
+    { name: 'Herramientas', count: 6, icon: <Lightbulb className="h-4 w-4" /> },
+    { name: 'Seguridad', count: 4, icon: <Shield className="h-4 w-4" /> }
+  ];
+
+  const getCategoryColor = (category: string) => {
+    const colors: Record<string, string> = {
+      'Técnicas': 'bg-tertiary text-tertiary-foreground',
+      'Educativo': 'bg-accent text-accent-foreground',
+      'Herramientas': 'bg-soft text-soft-foreground',
+      'Seguridad': 'bg-destructive text-destructive-foreground',
+      'Historia': 'bg-secondary text-secondary-foreground'
+    };
+    return colors[category] || 'bg-secondary text-secondary-foreground';
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -338,6 +418,169 @@ const Borosilicate = () => {
         </div>
       </section>
 
+      {/* Educational Content Section - Merged from Blog */}
+      <section className="py-20 bg-gradient-card">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-tertiary text-tertiary-foreground">
+              Contenido Educativo
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
+              Aprende sobre Borosilicato
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Guías, técnicas y conocimiento experto sobre el arte del soplado de vidrio y 
+              el trabajo con borosilicato para artistas de todos los niveles.
+            </p>
+          </div>
+
+          {/* Featured Article */}
+          <Card className="overflow-hidden border-border/50 hover:border-tertiary/50 transition-smooth group mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <div className="relative aspect-video lg:aspect-auto overflow-hidden">
+                <img 
+                  src={featuredPost.image} 
+                  alt={featuredPost.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4">
+                  <Badge className={getCategoryColor(featuredPost.category)}>
+                    Destacado
+                  </Badge>
+                </div>
+              </div>
+              
+              <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="mb-4">
+                  <Badge className={getCategoryColor(featuredPost.category)}>
+                    {featuredPost.category}
+                  </Badge>
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-4 group-hover:text-tertiary transition-colors">
+                  {featuredPost.title}
+                </h3>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  {featuredPost.excerpt}
+                </p>
+                
+                <div className="flex items-center text-sm text-muted-foreground mb-6">
+                  <User className="h-4 w-4 mr-2" />
+                  <span className="mr-4">{featuredPost.author}</span>
+                  <Calendar className="h-4 w-4 mr-2" />
+                  <span className="mr-4">{featuredPost.date}</span>
+                  <Clock className="h-4 w-4 mr-2" />
+                  <span>{featuredPost.readTime}</span>
+                </div>
+              </CardContent>
+            </div>
+          </Card>
+
+          {/* Educational Articles Grid */}
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Main Content */}
+            <div className="lg:w-2/3">
+              <div className="mb-8">
+                <h3 className="text-2xl font-heading font-bold text-primary mb-4">
+                  Artículos Educativos
+                </h3>
+              </div>
+
+              <div className="space-y-8">
+                {educationalPosts.map((post) => (
+                  <Card key={post.id} className="overflow-hidden border-border/50 hover:border-tertiary/50 transition-smooth group">
+                    <CardContent className="p-6">
+                      <div className="flex flex-col sm:flex-row gap-6">
+                        <div className="sm:w-48 flex-shrink-0">
+                          <div className="aspect-video bg-gradient-glass rounded-lg flex items-center justify-center">
+                            <BookOpen className="h-8 w-8 text-muted-foreground" />
+                          </div>
+                        </div>
+                        
+                        <div className="flex-1">
+                          <div className="mb-3">
+                            <Badge className={getCategoryColor(post.category)}>
+                              {post.category}
+                            </Badge>
+                          </div>
+                          
+                          <h4 className="text-xl font-semibold text-foreground mb-3 group-hover:text-tertiary transition-colors">
+                            {post.title}
+                          </h4>
+                          
+                          <p className="text-muted-foreground mb-4 leading-relaxed">
+                            {post.excerpt}
+                          </p>
+                          
+                          <div className="flex items-center text-sm text-muted-foreground">
+                            <User className="h-4 w-4 mr-2" />
+                            <span className="mr-4">{post.author}</span>
+                            <Calendar className="h-4 w-4 mr-2" />
+                            <span className="mr-4">{post.date}</span>
+                            <Clock className="h-4 w-4 mr-2" />
+                            <span>{post.readTime}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="lg:w-1/3">
+              <div className="sticky top-32 space-y-8">
+                {/* Categories */}
+                <Card className="border-border/50">
+                  <CardContent className="p-6">
+                    <h4 className="text-lg font-semibold text-foreground mb-4">
+                      Categorías de Aprendizaje
+                    </h4>
+                    <div className="space-y-3">
+                      {categories.map((category) => (
+                        <div 
+                          key={category.name}
+                          className="flex items-center justify-between p-3 rounded-lg bg-secondary/30 group"
+                        >
+                          <div className="flex items-center">
+                            <div className="mr-3 text-muted-foreground group-hover:text-tertiary">
+                              {category.icon}
+                            </div>
+                            <span className="text-foreground group-hover:text-tertiary transition-colors">
+                              {category.name}
+                            </span>
+                          </div>
+                          <Badge variant="secondary">
+                            {category.count}
+                          </Badge>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Newsletter */}
+                <Card className="border-border/50 bg-gradient-glass">
+                  <CardContent className="p-6">
+                    <h4 className="text-lg font-semibold text-foreground mb-3">
+                      Newsletter Educativo
+                    </h4>
+                    <p className="text-muted-foreground mb-4 text-sm">
+                      Recibe las últimas técnicas y novedades del mundo del borosilicato.
+                    </p>
+                    <Button className="w-full bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth">
+                      Suscribirse
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
@@ -354,11 +597,6 @@ const Borosilicate = () => {
                 <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary-hover transition-smooth group">
                   Ver Catálogo de Productos
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link to="/blog">
-                <Button variant="outline" size="lg" className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 transition-smooth">
-                  Leer Más en el Blog
                 </Button>
               </Link>
             </div>

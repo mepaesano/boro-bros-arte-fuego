@@ -18,8 +18,6 @@ const Header = () => {
   const navigation = [
     { name: "Inicio", href: "/" },
     { name: "Tienda", href: "/tienda" },
-    { name: "Herramientas", href: "/tienda?filter=herramientas" },
-    { name: "Blog", href: "/blog" },
     { name: "¿Qué es el Borosilicato?", href: "/borosilicato" },
     { name: "Sobre Boro Bros", href: "/sobre-nosotros" },
     { name: "Contacto", href: "https://api.whatsapp.com/send/?phone=5491133381522&text=Hola,+quisiera+hacer+una+consulta+sobre+vidrio+borosilicato" }
