@@ -7,9 +7,7 @@ import {
   Menu, 
   ShoppingCart, 
   Search, 
-  Phone,
-  Truck,
-  CreditCard
+  Phone
 } from "lucide-react";
 
 const Header = () => {
@@ -35,22 +33,8 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Banner - Fixed */}
-      <div className="bg-brown-dark text-white py-2 px-4 text-center text-sm font-medium fixed top-0 w-full z-50 shadow-lg">
-        <div className="container mx-auto flex items-center justify-center gap-4 flex-wrap">
-          <div className="flex items-center gap-2">
-            <Truck className="h-4 w-4" />
-            <span>Envío gratis a todo el país en compras superiores a $50.000</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CreditCard className="h-4 w-4" />
-            <span>Pago seguro con MercadoPago</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
-      <header className="sticky top-8 z-40 bg-beige-primary/95 backdrop-blur-md border-b border-brown-dark/20 shadow-soft">
+      <header className="sticky top-0 z-40 bg-beige-primary/95 backdrop-blur-md border-b border-brown-dark/20 shadow-soft">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
