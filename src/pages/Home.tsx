@@ -83,7 +83,7 @@ const Home = () => {
     },
     {
       icon: <Sparkles className="h-8 w-8 text-soft" />,
-      title: 'Colores Artísticos',
+      title: 'Variedad de colores',
       description: 'Amplia gama de colores para creaciones únicas'
     }
   ];
@@ -219,9 +219,9 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/blog">
-                <Button variant="outline" size="lg" className="border-border hover:bg-secondary/50 transition-smooth">
+                <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 transition-smooth">
                   <BookOpen className="mr-2 h-5 w-5" />
-                  Leer el Blog
+                  Leer más en el Blog
                 </Button>
               </Link>
             </div>

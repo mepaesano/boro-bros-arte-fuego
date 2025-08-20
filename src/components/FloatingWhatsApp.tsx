@@ -10,7 +10,7 @@ const FloatingWhatsApp = () => {
         asChild
       >
         <a 
-          href="https://wa.me/5491123456789?text=Hola! Tengo una consulta sobre vidrio borosilicato" 
+          href="https://api.whatsapp.com/send/?phone=5491133381522&text=Hola,+quisiera+hacer+una+consulta+sobre+vidrio+borosilicato" 
           target="_blank" 
           rel="noopener noreferrer"
           title="Escribinos por WhatsApp"

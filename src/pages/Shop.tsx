@@ -22,7 +22,7 @@ const Shop = () => {
   const allProducts = [
     {
       id: '1',
-      name: 'Varilla Borosilicato Clara 7mm',
+      name: 'Varilla Borosilicato Transparente 7mm',
       image: varillaClara,
       price: 3500,
       category: 'Varillas',
@@ -34,61 +34,98 @@ const Shop = () => {
     },
     {
       id: '2',
-      name: 'Varilla Borosilicato Azul Cobalto 5mm',
+      name: 'Varilla Borosilicato Azul 10mm',
       image: varillaAzul,
-      price: 4200,
-      originalPrice: 4800,
+      price: 4800,
       category: 'Varillas',
-      diameter: '5mm',
-      color: 'azul cobalto',
+      diameter: '10mm',
+      color: 'azul',
       stock: 8,
       isNew: true,
-      specifications: { diameter: '5mm', length: '33cm', coefficient: '33', temperature: '515°C' }
+      specifications: { diameter: '10mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
       id: '3',
-      name: 'Varilla Borosilicato Ámbar 6mm',
-      image: varillaAmbar,
-      price: 3800,
-      category: 'Varillas',
-      diameter: '6mm',
-      color: 'ámbar',
-      stock: 12,
+      name: 'Tubo Borosilicato 20x2mm',
+      image: varillaClara,
+      price: 5200,
+      category: 'Tubos',
+      diameter: '20mm',
+      color: 'transparente',
+      stock: 6,
       isFeatured: true,
-      specifications: { diameter: '6mm', length: '33cm', coefficient: '33', temperature: '515°C' }
+      specifications: { diameter: '20mm', wall: '2mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
       id: '4',
-      name: 'Varilla Borosilicato Clara 5mm',
-      image: varillaClara,
-      price: 3200,
-      category: 'Varillas',
-      diameter: '5mm',
-      color: 'transparente',
-      stock: 20,
-      specifications: { diameter: '5mm', length: '33cm', coefficient: '33', temperature: '515°C' }
-    },
-    {
-      id: '5',
-      name: 'Varilla Borosilicato Azul Cobalto 7mm',
-      image: varillaAzul,
-      price: 4500,
-      category: 'Varillas',
-      diameter: '7mm',
-      color: 'azul cobalto',
-      stock: 3,
-      specifications: { diameter: '7mm', length: '33cm', coefficient: '33', temperature: '515°C' }
-    },
-    {
-      id: '6',
-      name: 'Varilla Borosilicato Ámbar 8mm',
+      name: 'Varilla Color Ámbar 8mm',
       image: varillaAmbar,
       price: 4100,
       category: 'Varillas',
       diameter: '8mm',
       color: 'ámbar',
-      stock: 0,
+      stock: 12,
       specifications: { diameter: '8mm', length: '33cm', coefficient: '33', temperature: '515°C' }
+    },
+    {
+      id: '5',
+      name: 'Varilla Color Verde Oliva 6mm',
+      image: varillaClara,
+      price: 4300,
+      category: 'Varillas',
+      diameter: '6mm',
+      color: 'verde oliva',
+      stock: 10,
+      isNew: true,
+      specifications: { diameter: '6mm', length: '33cm', coefficient: '33', temperature: '515°C' }
+    },
+    {
+      id: '6',
+      name: 'Soplete Básico',
+      image: varillaClara,
+      price: 18500,
+      category: 'Herramientas',
+      diameter: 'N/A',
+      color: 'N/A',
+      stock: 5,
+      isFeatured: true,
+      specifications: { type: 'Gas/Oxígeno', flame_temp: '1200°C', use: 'Principiantes' }
+    },
+    {
+      id: '7',
+      name: 'Pinzas de Grafito',
+      image: varillaClara,
+      price: 2800,
+      category: 'Herramientas',
+      diameter: 'N/A',
+      color: 'negro',
+      stock: 15,
+      specifications: { material: 'Grafito', length: '25cm', heat_resistant: 'Sí' }
+    },
+    {
+      id: '8',
+      name: 'Mandril de Acero 3mm',
+      image: varillaClara,
+      price: 850,
+      category: 'Herramientas',
+      diameter: '3mm',
+      color: 'acero',
+      stock: 25,
+      specifications: { diameter: '3mm', length: '20cm', material: 'Acero inoxidable' }
+    },
+    {
+      id: '9',
+      name: 'Juego de Varillas Surtidas',
+      image: varillaAmbar,
+      price: 12500,
+      originalPrice: 15000,
+      category: 'Kits',
+      diameter: 'varios',
+      color: 'surtido',
+      stock: 3,
+      isNew: true,
+      isFeatured: true,
+      specifications: { contents: '6 varillas diferentes', diameters: '5mm, 6mm, 7mm', colors: 'Transparente, Azul, Ámbar' }
     }
   ];
 
@@ -153,7 +190,7 @@ const Shop = () => {
             </h1>
             <p className="text-xl text-muted-foreground">
               Descubre nuestra selección completa de varillas de vidrio borosilicato, 
-              herramientas y accesorios para soplado artístico.
+              herramientas y accesorios para vidrio soplado.
             </p>
           </div>
         </div>

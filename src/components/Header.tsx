@@ -20,12 +20,11 @@ const Header = () => {
   const navigation = [
     { name: "Inicio", href: "/" },
     { name: "Tienda", href: "/tienda" },
-    { name: "Colores", href: "/tienda?filter=colores" },
     { name: "Herramientas", href: "/tienda?filter=herramientas" },
     { name: "Blog", href: "/blog" },
     { name: "¿Qué es el Borosilicato?", href: "/borosilicato" },
     { name: "Sobre Boro Bros", href: "/sobre-nosotros" },
-    { name: "Contacto", href: "/contacto" }
+    { name: "Contacto", href: "https://api.whatsapp.com/send/?phone=5491133381522&text=Hola,+quisiera+hacer+una+consulta+sobre+vidrio+borosilicato" }
   ];
 
   const isActive = (href: string) => {
@@ -37,7 +36,7 @@ const Header = () => {
   return (
     <>
       {/* Top Banner - Fixed */}
-      <div className="bg-brown-dark text-white py-2 px-4 text-center text-sm font-medium fixed top-0 w-full z-50">
+      <div className="bg-brown-dark text-white py-2 px-4 text-center text-sm font-medium fixed top-0 w-full z-50 shadow-lg">
         <div className="container mx-auto flex items-center justify-center gap-4 flex-wrap">
           <div className="flex items-center gap-2">
             <Truck className="h-4 w-4" />
@@ -90,10 +89,6 @@ const Header = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-2">
-              {/* Search - Desktop */}
-              <Button variant="ghost" size="icon" className="hidden md:flex">
-                <Search className="h-5 w-5" />
-              </Button>
 
               {/* Phone */}
               <Button variant="ghost" size="icon" className="hidden sm:flex">

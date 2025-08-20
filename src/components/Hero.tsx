@@ -62,7 +62,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white">
               <Palette className="w-4 h-4 text-beige-light" />
-              <span className="text-sm font-medium">Colores Artísticos</span>
+              <span className="text-sm font-medium">Variedad de colores</span>
             </div>
           </div>
 
