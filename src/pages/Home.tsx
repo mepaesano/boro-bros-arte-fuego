@@ -166,7 +166,7 @@ const Home = () => {
 
           <div className="text-center">
             <Link to="/borosilicato">
-              <Button variant="outline" size="lg" className="border-border hover:bg-secondary/50 transition-smooth">
+              <Button size="lg" className="bg-brown-primary hover:bg-brown-secondary text-white transition-smooth">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Aprende Más sobre el Borosilicato
               </Button>
@@ -193,41 +193,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-tertiary/10 text-tertiary mb-6">
-              <Award className="h-4 w-4 mr-2" />
-              <span className="text-sm font-medium">Calidad Premium Garantizada</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-              Comienza tu Proyecto Artístico
-            </h2>
-            
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Únete a cientos de artistas que ya confían en Boro Bros para sus creaciones más importantes. 
-              Envío gratis a todo el país.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tienda">
-                <Button size="lg" className="bg-gradient-hero text-primary-foreground hover:opacity-90 transition-smooth">
-                  <Users className="mr-2 h-5 w-5" />
-                  Explorar Productos
-                </Button>
-              </Link>
-              <Link to="/blog">
-                <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10 transition-smooth">
-                  <BookOpen className="mr-2 h-5 w-5" />
-                  Leer más en el Blog
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
       <FloatingWhatsApp />

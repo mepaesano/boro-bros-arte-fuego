@@ -20,7 +20,7 @@ const Header = () => {
     { name: "Tienda", href: "/tienda" },
     { name: "¿Qué es el Borosilicato?", href: "/borosilicato" },
     { name: "Sobre Boro Bros", href: "/sobre-nosotros" },
-    { name: "Contacto", href: "https://api.whatsapp.com/send/?phone=5491133381522&text=Hola,+quisiera+hacer+una+consulta+sobre+vidrio+borosilicato" }
+    { name: "Contacto", href: "https://api.whatsapp.com/send/?phone=5491133381522&text=Hola! Estoy interesado en vidrio borosilicato." }
   ];
 
   const isActive = (href: string) => {
@@ -90,6 +90,15 @@ const Header = () => {
                     {cartCount}
                   </Badge>
                 )}
+              </Button>
+
+              {/* View Cart Button */}
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="hidden sm:flex"
+              >
+                Ver Carrito
               </Button>
 
               {/* Mobile Menu */}

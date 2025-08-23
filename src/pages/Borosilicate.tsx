@@ -581,28 +581,6 @@ const Borosilicate = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-              Comienza tu Proyecto con Borosilicato Premium
-            </h2>
-            <p className="text-xl opacity-90 mb-8">
-              Descubre nuestra selección de varillas de borosilicato de la más alta calidad, 
-              importadas directamente de laboratorios especializados.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tienda">
-                <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary-hover transition-smooth group">
-                  Ver Catálogo de Productos
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
