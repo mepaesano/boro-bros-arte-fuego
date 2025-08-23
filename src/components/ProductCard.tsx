@@ -1,8 +1,9 @@
+import { useState } from "react";
+import { useCart } from '@/hooks/useCart';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingCart, Heart, Eye } from "lucide-react";
-import { useState } from "react";
 
 interface ProductCardProps {
   id: string;
@@ -36,13 +37,24 @@ const ProductCard = ({
 }: ProductCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { addToCart } = useCart();
 
   const handleAddToCart = async () => {
     setIsLoading(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Simulate loading time
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Add to cart
+    addToCart({
+      id,
+      name,
+      image,
+      price,
+      specifications
+    });
+    
     setIsLoading(false);
-    // TODO: Add to cart functionality
   };
 
   const formatPrice = (price: number) => {
@@ -186,7 +198,8 @@ const ProductCard = ({
 
           {/* Add to Cart Button */}
           <Button 
-            className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold h-11"
+            className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold h-12 md:h-11"
+            size="mobile"
             onClick={handleAddToCart}
             disabled={stock === 0 || isLoading}
           >

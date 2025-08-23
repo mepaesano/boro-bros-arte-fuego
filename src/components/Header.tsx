@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "@/hooks/useCart";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 import { 
   Menu, 
   ShoppingCart, 
-  Search, 
-  Phone
+  Phone,
+  Minus,
+  Plus,
+  Trash2
 } from "lucide-react";
 
 const Header = () => {
-  const [cartCount, setCartCount] = useState(3);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const location = useLocation();
+  const { state, updateQuantity, removeFromCart } = useCart();
   
   const navigation = [
     { name: "Inicio", href: "/" },
@@ -22,6 +26,13 @@ const Header = () => {
     { name: "Sobre Boro Bros", href: "/sobre-nosotros" },
     { name: "Contacto", href: "https://api.whatsapp.com/send/?phone=5491133381522&text=Hola! Estoy interesado en vidrio borosilicato." }
   ];
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS'
+    }).format(price);
+  };
 
   const isActive = (href: string) => {
     if (href === "/" && location.pathname === "/") return true;
@@ -82,24 +93,26 @@ const Header = () => {
                 onMouseLeave={() => setIsCartOpen(false)}
               >
                 <ShoppingCart className="h-5 w-5" />
-                {cartCount > 0 && (
+                {state.itemCount > 0 && (
                   <Badge 
                     variant="destructive" 
                     className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs"
                   >
-                    {cartCount}
+                    {state.itemCount}
                   </Badge>
                 )}
               </Button>
 
               {/* View Cart Button */}
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="hidden sm:flex"
-              >
-                Ver Carrito
-              </Button>
+              <Link to="/carrito">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="hidden sm:flex"
+                >
+                  Ver Carrito
+                </Button>
+              </Link>
 
               {/* Mobile Menu */}
               <Sheet>
@@ -142,30 +155,89 @@ const Header = () => {
         </div>
 
         {/* Mini Cart Hover */}
-        {isCartOpen && cartCount > 0 && (
+        {isCartOpen && state.itemCount > 0 && (
           <div 
-            className="absolute top-full right-4 w-80 bg-card border border-border rounded-lg shadow-strong p-4 z-50"
+            className="absolute top-full right-4 w-96 bg-card border border-border rounded-lg shadow-strong p-4 z-50 max-h-96 overflow-y-auto"
             onMouseEnter={() => setIsCartOpen(true)}
             onMouseLeave={() => setIsCartOpen(false)}
           >
-            <h3 className="font-semibold mb-3">Carrito ({cartCount} productos)</h3>
-            <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-3 p-2 bg-secondary rounded">
-                <div className="w-12 h-12 bg-muted rounded"></div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Varilla 8mm Azul</p>
-                  <p className="text-xs text-muted-foreground">$12.500 x 2</p>
+            <h3 className="font-semibold mb-3">Carrito ({state.itemCount} productos)</h3>
+            <div className="space-y-3 mb-4">
+              {state.items.slice(0, 3).map((item) => (
+                <div key={item.id} className="flex items-center gap-3 p-2 bg-secondary rounded">
+                  <img 
+                    src={item.image} 
+                    alt={item.name}
+                    className="w-12 h-12 object-cover rounded bg-muted"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-medium truncate">{item.name}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {formatPrice(item.price)} x {item.quantity}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-6 w-6"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        updateQuantity(item.id, Math.max(0, item.quantity - 1));
+                      }}
+                    >
+                      <Minus className="h-3 w-3" />
+                    </Button>
+                    <span className="text-xs w-6 text-center">{item.quantity}</span>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-6 w-6"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        updateQuantity(item.id, item.quantity + 1);
+                      }}
+                    >
+                      <Plus className="h-3 w-3" />
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-6 w-6 text-destructive"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        removeFromCart(item.id);
+                      }}
+                    >
+                      <Trash2 className="h-3 w-3" />
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              ))}
+              {state.items.length > 3 && (
+                <p className="text-xs text-muted-foreground text-center">
+                  y {state.items.length - 3} productos más...
+                </p>
+              )}
             </div>
-            <div className="border-t pt-3">
-              <div className="flex justify-between items-center mb-3">
+            <Separator className="my-3" />
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
                 <span className="font-semibold">Total:</span>
-                <span className="font-bold text-lg text-primary">$25.000</span>
+                <span className="font-bold text-lg text-primary">{formatPrice(state.total)}</span>
               </div>
-              <Button className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground">
-                Ver Carrito
-              </Button>
+              <div className="grid grid-cols-2 gap-2">
+                <Link to="/carrito">
+                  <Button variant="outline" size="sm" className="w-full">
+                    Ver Carrito
+                  </Button>
+                </Link>
+                <Link to="/checkout">
+                  <Button size="sm" className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground">
+                    Checkout
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         )}

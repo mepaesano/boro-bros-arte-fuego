@@ -166,7 +166,7 @@ const Home = () => {
 
           <div className="text-center">
             <Link to="/borosilicato">
-              <Button size="lg" className="bg-brown-primary hover:bg-brown-secondary text-white transition-smooth">
+              <Button size="lg" variant="outline" className="hover:bg-primary-hover hover:text-white transition-smooth">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Aprende Más sobre el Borosilicato
               </Button>
