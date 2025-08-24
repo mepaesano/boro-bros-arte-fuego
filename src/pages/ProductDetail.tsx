@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { useCart } from '@/hooks/useCart';
+import { usePageTracking, trackViewItem } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -21,6 +22,9 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
+
+  // Page tracking
+  usePageTracking('Detalle de Producto', { product_id: id });
 
   // Mock product data (in real app, fetch by ID)
   const product = {
@@ -81,6 +85,13 @@ const ProductDetail = () => {
       specifications: { diameter: '8mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     }
   ];
+
+  // Track product view
+  useEffect(() => {
+    if (product) {
+      trackViewItem(product.id, product.name, product.category, product.price);
+    }
+  }, [product]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-AR', {

@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer, ReactNode } from 'react';
 import { toast } from '@/hooks/use-toast';
+import { trackAddToCart, trackViewCart } from '@/lib/analytics';
 
 export interface CartItem {
   id: string;
@@ -94,6 +95,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     dispatch({ type: 'ADD_ITEM', payload: { ...item, quantity: 1 } });
+    
+    // Track analytics event
+    trackAddToCart(item.id, item.name, item.price);
+    
     toast({
       title: "Producto agregado",
       description: `${item.name} se agregó al carrito`,

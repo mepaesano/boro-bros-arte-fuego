@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useCart } from '@/hooks/useCart';
+import { usePageTracking, trackViewCart } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,6 +12,22 @@ import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft } from 'lucide-react';
 
 const Cart = () => {
   const { state, updateQuantity, removeFromCart } = useCart();
+  
+  // Page tracking
+  usePageTracking('Carrito de Compras', { cart_value: state.total, item_count: state.itemCount });
+  
+  // Track cart view
+  useEffect(() => {
+    if (state.items.length > 0) {
+      const cartItems = state.items.map(item => ({
+        item_id: item.id,
+        item_name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      }));
+      trackViewCart(state.total, cartItems);
+    }
+  }, [state.items, state.total]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-AR', {

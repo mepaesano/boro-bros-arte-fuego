@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useCart } from '@/hooks/useCart';
+import { usePageTracking, trackBeginCheckout, trackPurchase } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -15,6 +16,7 @@ import { toast } from '@/hooks/use-toast';
 
 const Checkout = () => {
   const { state, clearCart } = useCart();
+  const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -26,6 +28,22 @@ const Checkout = () => {
     postalCode: '',
     notes: ''
   });
+
+  // Page tracking
+  usePageTracking('Checkout', { cart_value: state.total, item_count: state.itemCount });
+  
+  // Track begin checkout
+  useEffect(() => {
+    if (state.items.length > 0) {
+      const checkoutItems = state.items.map(item => ({
+        item_id: item.id,
+        item_name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      }));
+      trackBeginCheckout(state.total, checkoutItems);
+    }
+  }, [state.items, state.total]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-AR', {
@@ -65,21 +83,25 @@ const Checkout = () => {
       // En producción aquí iría la integración real con MercadoPago API
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Crear URL de MercadoPago (simulado)
-      const mercadoPagoUrl = `https://www.mercadopago.com.ar/checkout/v1/redirect?preference-id=123456789&source=link`;
+      // Generate order ID for tracking
+      const orderId = `ORD-${Date.now().toString().slice(-6)}`;
       
-      // Abrir MercadoPago en nueva pestaña
-      window.open(mercadoPagoUrl, '_blank');
+      // Track successful purchase
+      const purchaseItems = state.items.map(item => ({
+        item_id: item.id,
+        item_name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      }));
+      trackPurchase(orderId, finalTotal, purchaseItems);
       
       toast({
-        title: "Redirigiendo a MercadoPago",
-        description: "Se abrió una nueva pestaña para completar el pago",
+        title: "¡Compra exitosa!",
+        description: "Tu pedido ha sido procesado correctamente",
       });
       
-      // Limpiar carrito después del checkout exitoso
-      setTimeout(() => {
-        clearCart();
-      }, 3000);
+      // Redirect to thank you page
+      navigate('/gracias');
       
     } catch (error) {
       toast({
