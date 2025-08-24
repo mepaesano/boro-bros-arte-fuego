@@ -209,9 +209,14 @@ const ProductCard = ({
 
         {/* Add to Cart Button */}
         <Button 
+          type="button"
           className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold min-h-[48px] rounded-lg"
           onClick={handleAddToCart}
           disabled={stock === 0 || isLoading}
+          data-product-id={id}
+          data-name={name}
+          data-price={price.toString()}
+          data-image={image}
         >
           {isLoading ? (
             <div className="flex items-center gap-2">

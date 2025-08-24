@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, ReactNode } from 'react';
+import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
 import { toast } from '@/hooks/use-toast';
 import { trackAddToCart, trackViewCart } from '@/lib/analytics';
 
@@ -87,11 +87,38 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 };
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(cartReducer, {
-    items: [],
-    total: 0,
-    itemCount: 0
-  });
+  // Initialize cart from localStorage
+  const getInitialState = (): CartState => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('bb_cart');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          return {
+            items: parsed.items || [],
+            total: parsed.total || 0,
+            itemCount: parsed.itemCount || 0
+          };
+        }
+      } catch (error) {
+        console.error('Error loading cart from localStorage:', error);
+      }
+    }
+    return { items: [], total: 0, itemCount: 0 };
+  };
+
+  const [state, dispatch] = useReducer(cartReducer, getInitialState());
+
+  // Save to localStorage whenever state changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('bb_cart', JSON.stringify(state));
+      } catch (error) {
+        console.error('Error saving cart to localStorage:', error);
+      }
+    }
+  }, [state]);
 
   const addToCart = (item: Omit<CartItem, 'quantity'>) => {
     dispatch({ type: 'ADD_ITEM', payload: { ...item, quantity: 1 } });
@@ -100,7 +127,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     trackAddToCart(item.id, item.name, item.price);
     
     toast({
-      title: "Producto agregado",
+      title: "Agregado al carrito",
       description: `${item.name} se agregó al carrito`,
     });
   };

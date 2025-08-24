@@ -174,12 +174,14 @@ const Home = () => {
               className="w-full h-full object-cover"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/22 via-black/25 to-black/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/30 to-black/35"></div>
           </div>
 
           {/* Content */}
           <div className="container mx-auto px-4 relative z-10 pt-24 pb-8">
-            <div className="max-w-4xl">
+            <div className="max-w-4xl"
+              style={{ minHeight: 'calc(80vh - 200px)' }} /* Ensure above-the-fold on desktop */
+            >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4 font-heading" style={{ textShadow: '0 4px 8px rgba(0,0,0,0.3)' }}>
                 Pioneros en<br/>
                 <span style={{ color: '#F0E6DC' }}>Borosilicato</span><br/>
@@ -217,7 +219,11 @@ const Home = () => {
                 </Link>
                 
                 <Link to="/borosilicato">
-                  <Button variant="secondary" size="lg" className="min-h-[48px] px-8 bg-secondary border-2 border-primary text-primary hover:bg-primary hover:text-secondary">
+                  <Button 
+                    variant="secondary" 
+                    size="lg" 
+                    className="min-h-[48px] px-8 bg-secondary border-2 border-primary text-primary hover:bg-brown-hover hover:text-white hover:border-brown-hover transition-all"
+                  >
                     Aprende Más sobre el Borosilicato
                   </Button>
                 </Link>

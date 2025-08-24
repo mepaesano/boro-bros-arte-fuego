@@ -100,6 +100,9 @@ const Checkout = () => {
         description: "Tu pedido ha sido procesado correctamente",
       });
       
+      // Clear cart after successful purchase
+      clearCart();
+      
       // Redirect to thank you page
       navigate('/gracias');
       
