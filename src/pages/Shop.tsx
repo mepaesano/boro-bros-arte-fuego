@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
 import Footer from '@/components/Footer';
-import { usePageTracking } from '@/lib/analytics';
+import { usePageTracking, trackEvent } from '@/lib/analytics';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
-import { Filter, Grid, List, SlidersHorizontal, Search, X } from 'lucide-react';
+import { Filter, Grid, List, SlidersHorizontal, Search, X, TruckIcon, CreditCard, Shield, ShoppingBag } from 'lucide-react';
 
 // Import product images
 import varillaClara from '@/assets/varilla-clara.jpg';
@@ -18,6 +19,15 @@ import varillaAmbar from '@/assets/varilla-ambar.jpg';
 
 const Shop = () => {
   usePageTracking('Tienda de Borosilicato', { section: 'shop' });
+
+  // Analytics tracking for filter usage
+  useEffect(() => {
+    trackEvent('page_view', {
+      page_title: 'Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros',
+      page_location: window.location.href,
+      content_group1: 'Tienda'
+    });
+  }, []);
   
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState('featured');
@@ -39,6 +49,7 @@ const Shop = () => {
       color: 'transparente',
       stock: 15,
       isFeatured: true,
+      isNew: false,
       specifications: { diameter: '7mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
@@ -51,6 +62,7 @@ const Shop = () => {
       color: 'azul cobalto',
       stock: 8,
       isNew: true,
+      isFeatured: false,
       specifications: { diameter: '10mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
@@ -63,6 +75,7 @@ const Shop = () => {
       color: 'transparente',
       stock: 6,
       isFeatured: true,
+      isNew: false,
       specifications: { diameter: '20mm', wall: '2mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
@@ -74,6 +87,8 @@ const Shop = () => {
       diameter: '8mm',
       color: 'ámbar',
       stock: 12,
+      isFeatured: false,
+      isNew: false,
       specifications: { diameter: '8mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
@@ -86,6 +101,7 @@ const Shop = () => {
       color: 'verde oliva',
       stock: 10,
       isNew: true,
+      isFeatured: false,
       specifications: { diameter: '6mm', length: '33cm', coefficient: '33', temperature: '515°C' }
     },
     {
@@ -98,6 +114,7 @@ const Shop = () => {
       color: 'N/A',
       stock: 5,
       isFeatured: true,
+      isNew: false,
       specifications: { type: 'Gas/Oxígeno', flame_temp: '1200°C', use: 'Principiantes' }
     },
     {
@@ -109,6 +126,8 @@ const Shop = () => {
       diameter: 'N/A',
       color: 'negro',
       stock: 15,
+      isFeatured: false,
+      isNew: false,
       specifications: { material: 'Grafito', length: '25cm', heat_resistant: 'Sí' }
     },
     {
@@ -120,6 +139,8 @@ const Shop = () => {
       diameter: '3mm',
       color: 'acero',
       stock: 25,
+      isFeatured: false,
+      isNew: false,
       specifications: { diameter: '3mm', length: '20cm', material: 'Acero inoxidable' }
     },
     {
@@ -211,6 +232,21 @@ const Shop = () => {
     setFilterDiameter('all');
     setPriceRange([0, 20000]);
     setSearchTerm('');
+    
+    // Track filter usage
+    trackEvent('filter_clear', {
+      content_category: 'Shop',
+      filter_type: 'all'
+    });
+  };
+
+  // Track filter changes
+  const handleFilterChange = (filterType: string, value: string) => {
+    trackEvent('filter_applied', {
+      content_category: 'Shop',
+      filter_type: filterType,
+      filter_value: value
+    });
   };
 
   const hasActiveFilters = filterCategory !== 'all' || filterColor !== 'all' || 
@@ -219,23 +255,63 @@ const Shop = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* SEO Head content will be added via dynamic meta tags */}
+      <Helmet>
+        <title>Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros</title>
+        <meta name="description" content="Descubre nuestra selección premium de varillas de vidrio borosilicato, tubos, herramientas y accesorios para soplado artístico. Envíos gratis a todo el país en compras desde $50.000. Vidrio borosilicato Argentina, varillas de borosilicato, herramientas vidrio soplado." />
+        <meta name="keywords" content="vidrio borosilicato Argentina, comprar varillas de borosilicato, herramientas vidrio soplado, tubos borosilicato, varillas coeficiente 33, soplete para vidrio, soplado artístico, lampworking Argentina, flameworking" />
+        <link rel="canonical" href="https://borobros.com.ar/tienda" />
+        <meta property="og:title" content="Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros" />
+        <meta property="og:description" content="Varillas, tubos y herramientas premium para soplado artístico. Calidad garantizada y envíos a todo el país." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://borobros.com.ar/tienda" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Store",
+            "name": "Boro Bros",
+            "description": "Tienda especializada en vidrio borosilicato y herramientas para soplado artístico",
+            "url": "https://borobros.com.ar/tienda",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "AR",
+              "addressLocality": "Buenos Aires"
+            },
+            "telephone": "+54-11-2333-81522",
+            "email": "hola@borobros.com.ar"
+          })}
+        </script>
+      </Helmet>
       <Header />
 
       {/* Page Header */}
       <section className="pt-32 pb-16 bg-gradient-card">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-4 bg-tertiary text-tertiary-foreground">
               Catálogo Premium
             </Badge>
             <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary mb-6">
-              Comprar Vidrio Borosilicato
+              Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Descubre nuestra selección completa de varillas de vidrio borosilicato coeficiente 33, 
-              herramientas profesionales y accesorios para soplado artístico.
+            <p className="text-xl text-muted-foreground mb-6">
+              Descubre nuestra selección premium de varillas de vidrio borosilicato, tubos, herramientas y accesorios para soplado artístico. Envíos gratis a todo el país en compras desde $50.000.
             </p>
+            
+            {/* Trust indicators */}
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <div className="flex items-center gap-2 text-tertiary font-medium">
+                <Shield className="h-4 w-4" />
+                Pago seguro con MercadoPago
+              </div>
+              <div className="flex items-center gap-2 text-tertiary font-medium">
+                <TruckIcon className="h-4 w-4" />
+                Calidad premium
+              </div>
+              <div className="flex items-center gap-2 text-tertiary font-medium">
+                <ShoppingBag className="h-4 w-4" />
+                Envío garantizado
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -289,11 +365,14 @@ const Shop = () => {
                 <span className="text-sm font-medium text-foreground">Filtros:</span>
               </div>
 
-              <Select value={filterCategory} onValueChange={setFilterCategory}>
+              <Select value={filterCategory} onValueChange={(value) => {
+                setFilterCategory(value);
+                handleFilterChange('category', value);
+              }}>
                 <SelectTrigger className="w-48">
-                  <SelectValue placeholder="Categoría" />
+                  <SelectValue placeholder="Tipo" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background border-border">
                   {categories.map((category) => (
                     <SelectItem key={category.value} value={category.value}>
                       {category.label}
@@ -302,11 +381,14 @@ const Shop = () => {
                 </SelectContent>
               </Select>
 
-              <Select value={filterColor} onValueChange={setFilterColor}>
+              <Select value={filterColor} onValueChange={(value) => {
+                setFilterColor(value);
+                handleFilterChange('color', value);
+              }}>
                 <SelectTrigger className="w-48">
                   <SelectValue placeholder="Color" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background border-border">
                   {colors.map((color) => (
                     <SelectItem key={color.value} value={color.value}>
                       {color.label}
@@ -315,11 +397,14 @@ const Shop = () => {
                 </SelectContent>
               </Select>
 
-              <Select value={filterDiameter} onValueChange={setFilterDiameter}>
+              <Select value={filterDiameter} onValueChange={(value) => {
+                setFilterDiameter(value);
+                handleFilterChange('diameter', value);
+              }}>
                 <SelectTrigger className="w-48">
-                  <SelectValue placeholder="Diámetro" />
+                  <SelectValue placeholder="Espesor" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-background border-border">
                   {diameters.map((diameter) => (
                     <SelectItem key={diameter.value} value={diameter.value}>
                       {diameter.label}
@@ -401,9 +486,9 @@ const Shop = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           {filteredProducts.length > 0 ? (
-            <div className={`grid gap-8 ${
+            <div className={`grid gap-6 ${
               viewMode === 'grid' 
-                ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
+                ? 'grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
                 : 'grid-cols-1 md:grid-cols-2'
             }`}>
               {filteredProducts.map((product) => (
@@ -434,15 +519,50 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Shipping Banner */}
-      <section className="py-12 bg-tertiary text-tertiary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-semibold mb-2">
-            🚚 Envío Gratis a Todo el País
-          </h3>
-          <p className="text-tertiary-foreground/80">
-            En compras superiores a $50.000 • Tiempo de entrega: 3-7 días hábiles
-          </p>
+      {/* Trust and Payment Section */}
+      <section className="py-16 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-4">
+                <TruckIcon className="h-8 w-8 text-tertiary-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Envío Gratis</h3>
+              <p className="text-muted-foreground">En compras superiores a $50.000 a todo el país</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-tertiary-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Pago Seguro</h3>
+              <p className="text-muted-foreground">Con MercadoPago • Todas las tarjetas</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-tertiary rounded-full flex items-center justify-center mx-auto mb-4">
+                <CreditCard className="h-8 w-8 text-tertiary-foreground" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">12 Cuotas</h3>
+              <p className="text-muted-foreground">Sin interés con tarjetas de crédito</p>
+            </div>
+          </div>
+          
+          {/* Payment methods */}
+          <div className="text-center">
+            <h4 className="text-lg font-semibold mb-4">Medios de Pago</h4>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
+              <span>Visa</span>
+              <span>•</span>
+              <span>Mastercard</span>
+              <span>•</span>
+              <span>American Express</span>
+              <span>•</span>
+              <span>Cabal</span>
+              <span>•</span>
+              <span>Naranja</span>
+              <span>•</span>
+              <span>Maestro</span>
+            </div>
+          </div>
         </div>
       </section>
 

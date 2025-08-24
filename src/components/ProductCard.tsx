@@ -16,6 +16,7 @@ interface ProductCardProps {
   stock: number;
   rating?: number;
   isFeatured?: boolean;
+  isNew?: boolean;
   specifications?: {
     diameter?: string;
     length?: string;
@@ -34,6 +35,7 @@ const ProductCard = ({
   stock, 
   rating = 5,
   isFeatured = false,
+  isNew = false,
   specifications 
 }: ProductCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -106,9 +108,14 @@ const ProductCard = ({
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-2">
+          {isNew && (
+            <Badge className="bg-tertiary text-tertiary-foreground">
+              Nuevo
+            </Badge>
+          )}
           {isFeatured && (
             <Badge className="bg-accent text-accent-foreground">
-              Destacado
+              Más Vendido
             </Badge>
           )}
           {originalPrice && (
@@ -202,7 +209,7 @@ const ProductCard = ({
 
         {/* Add to Cart Button */}
         <Button 
-          className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold min-h-[48px]"
+          className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground font-semibold min-h-[48px] rounded-lg"
           onClick={handleAddToCart}
           disabled={stock === 0 || isLoading}
         >
