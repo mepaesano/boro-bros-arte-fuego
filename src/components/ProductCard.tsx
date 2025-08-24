@@ -4,7 +4,7 @@ import { useCart } from '@/hooks/useCart';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ShoppingCart, Heart, Eye } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 interface ProductCardProps {
   id: string;
@@ -38,7 +38,7 @@ const ProductCard = ({
   isNew = false,
   specifications 
 }: ProductCardProps) => {
-  const [isLiked, setIsLiked] = useState(false);
+  
   const [isLoading, setIsLoading] = useState(false);
   const { addToCart } = useCart();
 
@@ -82,36 +82,6 @@ const ProductCard = ({
             />
           </div>
             
-          {/* Overlay Actions */}
-          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-            <div className="flex gap-2">
-              <Button 
-                size="icon" 
-                variant="secondary"
-                className="bg-background/90 backdrop-blur-sm hover:bg-background"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-              >
-                <Eye className="h-4 w-4" />
-              </Button>
-              <Button 
-                size="icon" 
-                variant="secondary"
-                className={`bg-background/90 backdrop-blur-sm hover:bg-background ${
-                  isLiked ? 'text-red-500' : ''
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setIsLiked(!isLiked);
-                }}
-              >
-                <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
-              </Button>
-            </div>
-          </div>
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">
