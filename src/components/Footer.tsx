@@ -75,8 +75,7 @@ const Footer = () => {
                 Pioneros en Borosilicato
               </p>
               <p className="text-sm opacity-75 max-w-lg mx-auto">
-                La primera tienda argentina especializada en vidrio borosilicato 
-                y herramientas para soplado artístico.
+                Pioneros en borosilicato. Varillas, tubos y herramientas para soplado artístico. Envíos a todo el país.
               </p>
             </div>
 
@@ -124,7 +123,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center justify-center gap-2 text-sm">
                   <Phone className="w-4 h-4" />
-                  <span>+54 11 2345-6789</span>
+                  <span>+54 11 3338-1522</span>
                 </div>
               </div>
             </div>

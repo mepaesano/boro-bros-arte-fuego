@@ -360,12 +360,15 @@ const Checkout = () => {
                     {/* Checkout Button */}
                     <Button
                       size="lg"
-                      className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground"
+                      className="w-full bg-tertiary hover:bg-tertiary-hover text-tertiary-foreground min-h-[48px]"
                       onClick={handleMercadoPagoCheckout}
                       disabled={isProcessing}
                     >
                       {isProcessing ? (
-                        'Procesando...'
+                        <>
+                          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2"></div>
+                          Procesando...
+                        </>
                       ) : (
                         <>
                           <CreditCard className="h-5 w-5 mr-2" />

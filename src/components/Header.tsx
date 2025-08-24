@@ -23,9 +23,14 @@ const Header = () => {
     { name: "Inicio", href: "/" },
     { name: "Tienda", href: "/tienda" },
     { name: "¿Qué es el Borosilicato?", href: "/borosilicato" },
+    { name: "Blog", href: "/blog" },
     { name: "Sobre Boro Bros", href: "/sobre-nosotros" },
-    { name: "Contacto", href: "https://api.whatsapp.com/send/?phone=5491133381522&text=Hola! Estoy interesado en vidrio borosilicato." }
+    { name: "Contacto", href: "/contacto" }
   ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-AR', {
@@ -49,6 +54,7 @@ const Header = () => {
             {/* Logo */}
             <Link 
               to="/" 
+              onClick={scrollToTop}
               className="flex items-center transition-opacity hover:opacity-80"
             >
               <img 
@@ -65,6 +71,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
+                  onClick={scrollToTop}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-secondary ${
                     isActive(item.href)
                       ? "text-primary bg-secondary"
