@@ -74,7 +74,8 @@ export default {
 					light: 'hsl(var(--beige-light))',
 				},
 				brown: {
-					dark: 'hsl(var(--brown-dark))', 
+					dark: 'hsl(var(--brown-dark))',
+					hover: 'hsl(var(--brown-hover))'
 				},
 				olive: {
 					green: 'hsl(var(--olive-green))',

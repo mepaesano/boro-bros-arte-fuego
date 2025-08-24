@@ -41,9 +41,9 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-background to-secondary/30">
+    <section className="py-12 bg-gradient-to-br from-background to-secondary/20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
             ¿Por qué elegir Boro Bros?
           </h2>
@@ -59,10 +59,10 @@ const TrustSection = () => {
             return (
               <div 
                 key={index}
-                className="group bg-card hover:bg-card/80 border border-border/50 rounded-xl p-6 text-center hover:shadow-medium transition-all duration-300 hover:-translate-y-1"
+                className="group bg-card hover:bg-card/90 border border-border/50 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/50 mb-4 group-hover:scale-110 transition-transform duration-300 ${feature.color}`}>
-                  <Icon className="w-8 h-8" />
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/50 mb-4 group-hover:scale-110 transition-transform duration-300 ${feature.color}`}>
+                  <Icon className="w-6 h-6" />
                 </div>
                 
                 <h3 className="font-heading font-semibold text-lg text-primary mb-2">
@@ -78,9 +78,9 @@ const TrustSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-primary font-heading mb-2">
+            <div className="text-2xl md:text-3xl font-bold text-primary font-heading mb-1">
               500+
             </div>
             <div className="text-sm text-muted-foreground">
@@ -89,7 +89,7 @@ const TrustSection = () => {
           </div>
           
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-tertiary font-heading mb-2">
+            <div className="text-2xl md:text-3xl font-bold text-tertiary font-heading mb-1">
               1000+
             </div>
             <div className="text-sm text-muted-foreground">
@@ -98,7 +98,7 @@ const TrustSection = () => {
           </div>
           
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-accent font-heading mb-2">
+            <div className="text-2xl md:text-3xl font-bold text-accent font-heading mb-1">
               24h
             </div>
             <div className="text-sm text-muted-foreground">
@@ -107,7 +107,7 @@ const TrustSection = () => {
           </div>
           
           <div>
-            <div className="text-3xl md:text-4xl font-bold text-soft font-heading mb-2">
+            <div className="text-2xl md:text-3xl font-bold text-soft font-heading mb-1">
               98%
             </div>
             <div className="text-sm text-muted-foreground">

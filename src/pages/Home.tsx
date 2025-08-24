@@ -174,7 +174,7 @@ const Home = () => {
               className="w-full h-full object-cover object-center"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-brown-dark/40" style={{ background: 'linear-gradient(to bottom, transparent 20%, rgba(61, 46, 30, 0.3) 70%, rgba(61, 46, 30, 0.4) 100%)' }}></div>
           </div>
 
           {/* Content */}
@@ -190,14 +190,14 @@ const Home = () => {
 
               <p className="text-xl md:text-2xl text-white/95 max-w-2xl font-medium mb-6" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
                 Vidrio premium para soplado artístico. Calidad profesional, 
-                resistencia excepcional, colores únicos.
+                herramientas especializadas y envíos a todo el país.
               </p>
 
               {/* Benefit chips */}
               <div className="flex flex-wrap gap-3 mb-8">
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm font-medium">
                   <Thermometer className="w-4 h-4" />
-                  <span>Resistente 515°C</span>
+                  <span>Resistente a 515 °C</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm font-medium">
                   <Shield className="w-4 h-4" />

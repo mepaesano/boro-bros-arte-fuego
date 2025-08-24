@@ -20,8 +20,10 @@ import varillaAmbar from '@/assets/varilla-ambar.jpg';
 const Shop = () => {
   usePageTracking('Tienda de Borosilicato', { section: 'shop' });
 
-  // Analytics tracking for filter usage
+  // Scroll to top when component mounts
   useEffect(() => {
+    window.scrollTo(0, 0);
+    
     trackEvent('page_view', {
       page_title: 'Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros',
       page_location: window.location.href,

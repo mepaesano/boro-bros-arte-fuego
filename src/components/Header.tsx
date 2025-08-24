@@ -8,7 +8,7 @@ import MiniCart from "@/components/MiniCart";
 import { 
   Menu, 
   ShoppingCart, 
-  Phone
+  MessageCircle
 } from "lucide-react";
 
 const Header = () => {
@@ -21,8 +21,7 @@ const Header = () => {
     { name: "Inicio", href: "/" },
     { name: "Tienda", href: "/tienda" },
     { name: "Borosilicato", href: "/borosilicato" },
-    { name: "Nosotros", href: "/sobre-nosotros" },
-    { name: "Contacto", href: "/contacto" }
+    { name: "Nosotros", href: "/sobre-nosotros" }
   ];
 
   const scrollToTop = () => {
@@ -49,7 +48,7 @@ const Header = () => {
       {/* Main Header */}
       <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-md border-b border-border shadow-soft">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link 
               to="/" 
@@ -59,7 +58,7 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/31c20fc6-abb9-43cf-8ee6-aa72e025d570.png" 
                 alt="BoroBros - Pioneros en Borosilicato" 
-                className="h-12 w-auto max-w-[200px] object-contain"
+                className="h-18 w-auto max-w-[280px] object-contain"
                 style={{ imageRendering: 'crisp-edges' }}
               />
             </Link>
@@ -84,7 +83,7 @@ const Header = () => {
 
             {/* Actions */}
             <div className="flex items-center gap-2">
-              {/* Phone */}
+              {/* WhatsApp */}
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -92,12 +91,12 @@ const Header = () => {
                 asChild
               >
                 <a 
-                  href="https://api.whatsapp.com/send/?phone=5491133381522&text=Hola%2C+quisiera+consultar+sobre+vidrio+borosilicato"
+                  href="https://api.whatsapp.com/send/?phone=5491133381522&text=Hola%2C+quiero+consultar+sobre+vidrio+borosilicato"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Contactar por WhatsApp"
+                  aria-label="Chatear por WhatsApp"
                 >
-                  <Phone className="h-5 w-5" />
+                  <MessageCircle className="h-5 w-5" />
                 </a>
               </Button>
 
