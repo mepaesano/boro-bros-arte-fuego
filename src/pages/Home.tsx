@@ -169,12 +169,12 @@ const Home = () => {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img 
-              src="/lovable-uploads/d093db4c-cc1b-4169-ac2f-4fa6d2e98c2d.png" 
-              alt="Tubos de vidrio borosilicato de colores - verde, azul, ámbar y transparente - dispuestos artísticamente para soplado de vidrio profesional" 
+              src="/lovable-uploads/17939bd5-e33c-4cb9-8b68-8c86a333e11c.png" 
+              alt="Varillas de vidrio borosilicato en colores transparente, azul, verde y ámbar con reflejos artísticos, fondo profesional para soplado en Argentina" 
               className="w-full h-full object-cover object-center"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/40 to-primary/45"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/50"></div>
           </div>
 
           {/* Content */}
