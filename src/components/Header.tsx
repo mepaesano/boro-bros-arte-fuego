@@ -58,7 +58,7 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/63ca099c-e0ac-4a22-9727-44f45368239e.png" 
                 alt="Boro. - Pioneros en Borosilicato"
-                className="h-12 w-auto max-w-[200px] object-contain"
+                className="h-16 w-auto max-w-[300px] object-contain"
                 style={{ imageRendering: 'crisp-edges' }}
               />
             </Link>
