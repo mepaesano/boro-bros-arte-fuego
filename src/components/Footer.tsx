@@ -20,11 +20,17 @@ const Footer = () => {
           <div className="max-w-5xl mx-auto">
             {/* Logo and Brand */}
             <div className="text-center mb-10">
-              <img 
-                src="/lovable-uploads/31c20fc6-abb9-43cf-8ee6-aa72e025d570.png" 
-                alt="BoroBros Logo" 
-                className="h-24 w-auto mx-auto mb-4 filter brightness-0 invert"
-              />
+              <Link 
+                to="/" 
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="inline-block transition-opacity hover:opacity-80"
+              >
+                <img 
+                  src="/lovable-uploads/63ca099c-e0ac-4a22-9727-44f45368239e.png" 
+                  alt="Boro. - Pioneros en Borosilicato" 
+                  className="h-24 w-auto mx-auto mb-4"
+                />
+              </Link>
               <h3 className="font-heading font-bold text-2xl mb-3 text-beige-primary" style={{ color: 'hsl(39 30% 90%)' }}>
                 Boro.
               </h3>

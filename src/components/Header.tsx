@@ -56,7 +56,7 @@ const Header = () => {
               className="flex items-center transition-opacity hover:opacity-80"
             >
               <img 
-                src="/lovable-uploads/31c20fc6-abb9-43cf-8ee6-aa72e025d570.png" 
+                src="/lovable-uploads/63ca099c-e0ac-4a22-9727-44f45368239e.png" 
                 alt="Boro. - Pioneros en Borosilicato"
                 className="h-12 w-auto max-w-[200px] object-contain"
                 style={{ imageRendering: 'crisp-edges' }}
@@ -134,7 +134,7 @@ const Header = () => {
                   <div className="flex flex-col gap-4 mt-6">
                     <Link to="/" className="flex items-center pb-4 border-b" onClick={handleNavClick}>
                       <img 
-                        src="/lovable-uploads/31c20fc6-abb9-43cf-8ee6-aa72e025d570.png" 
+                        src="/lovable-uploads/63ca099c-e0ac-4a22-9727-44f45368239e.png" 
                         alt="Boro. - Pioneros en Borosilicato" 
                         className="h-10 w-auto max-w-[160px] object-contain"
                         style={{ imageRendering: 'crisp-edges' }}
