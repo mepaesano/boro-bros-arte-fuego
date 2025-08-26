@@ -405,6 +405,7 @@ const Checkout = () => {
                     {/* Security Notice */}
                     <div className="text-xs text-muted-foreground text-center pt-4 border-t border-border">
                       <Shield className="h-4 w-4 mx-auto mb-2" />
+                      🏦 15% descuento con transferencia bancaria<br />
                       Compra 100% segura y protegida
                     </div>
                   </CardContent>

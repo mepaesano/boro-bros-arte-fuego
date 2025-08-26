@@ -26,7 +26,7 @@ const Footer = () => {
                 className="h-24 w-auto mx-auto mb-4 filter brightness-0 invert"
               />
               <h3 className="font-heading font-bold text-2xl mb-3 text-beige-primary" style={{ color: 'hsl(39 30% 90%)' }}>
-                Boro Bros
+                Boro.
               </h3>
               <p className="text-base opacity-95 max-w-lg mx-auto leading-relaxed" style={{ color: 'hsl(39 30% 85%)' }}>
                 Pioneros en borosilicato en Argentina. Varillas, tubos y herramientas profesionales para soplado artístico.
@@ -115,7 +115,7 @@ const Footer = () => {
       <div className="border-t py-4" style={{ borderColor: 'hsl(39 30% 60%)' }}>
         <div className="container mx-auto px-4">
           <div className="text-center text-sm" style={{ color: 'hsl(39 30% 80%)' }}>
-            © {currentYear} Boro Bros. Todos los derechos reservados.
+            © {currentYear} Boro. Todos los derechos reservados.
           </div>
         </div>
       </div>

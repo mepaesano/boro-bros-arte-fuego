@@ -45,7 +45,7 @@ const TrustSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
-            ¿Por qué elegir Boro Bros?
+            ¿Por qué elegir Boro.?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             La confianza de cientos de artistas y talleres en toda Argentina 

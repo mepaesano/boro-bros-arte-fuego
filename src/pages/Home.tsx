@@ -93,12 +93,6 @@ const benefits = [
   }
 ];
 
-const stats = [
-  { number: "500+", label: "Artistas Confían en Nosotros" },
-  { number: "1000+", label: "Productos Vendidos" },
-  { number: "24/7", label: "Soporte Técnico" },
-  { number: "100%", label: "Calidad Garantizada" }
-];
 
 const Home = () => {
   const { addToCart } = useCart();
@@ -113,21 +107,21 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Boro Bros - Pioneros en Borosilicato en Argentina | Vidrio Premium para Soplado Artístico</title>
-        <meta name="description" content="Descubre Boro Bros, pioneros en vidrio borosilicato en Argentina. Varillas, tubos y herramientas premium para soplado artístico. Coeficiente 33, resistencia 515°C, envíos gratis desde $50.000." />
+        <title>Boro. - Pioneros en Borosilicato en Argentina | Vidrio Premium para Soplado Artístico</title>
+        <meta name="description" content="Descubre Boro., pioneros en vidrio borosilicato en Argentina. Varillas, tubos y herramientas premium para soplado artístico. Coeficiente 33, resistencia 515°C, envíos gratis desde $50.000." />
         <meta name="keywords" content="borosilicato Argentina, vidrio soplado, varillas borosilicato, tubos vidrio, herramientas soplado, pyrex, coeficiente 33, flameworking, lampworking" />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://borobros.com.ar/" />
-        <meta property="og:title" content="Boro Bros - Pioneros en Borosilicato en Argentina" />
+        <meta property="og:title" content="Boro. - Pioneros en Borosilicato en Argentina" />
         <meta property="og:description" content="Vidrio premium para soplado artístico. Calidad profesional, resistencia excepcional, colores únicos." />
         <meta property="og:image" content="/lovable-uploads/46f8abee-5fa3-4d03-8384-22e5bbd04a67.png" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://borobros.com.ar/" />
-        <meta property="twitter:title" content="Boro Bros - Pioneros en Borosilicato en Argentina" />
+        <meta property="twitter:title" content="Boro. - Pioneros en Borosilicato en Argentina" />
         <meta property="twitter:description" content="Vidrio premium para soplado artístico. Calidad profesional, resistencia excepcional, colores únicos." />
         <meta property="twitter:image" content="/lovable-uploads/46f8abee-5fa3-4d03-8384-22e5bbd04a67.png" />
 
@@ -139,7 +133,7 @@ const Home = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Boro Bros",
+            "name": "Boro.",
             "url": "https://borobros.com.ar",
             "logo": "https://borobros.com.ar/logo.png",
             "description": "Pioneros en vidrio borosilicato en Argentina. Varillas, tubos y herramientas para soplado artístico.",
@@ -317,23 +311,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-16 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              {stats.map((stat, index) => (
-                <div key={index}>
-                  <div className="text-3xl md:text-4xl font-bold text-tertiary-foreground mb-2 font-heading gradient-text">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm opacity-80">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
         <Footer />
         <FloatingWhatsApp />

@@ -57,7 +57,7 @@ const Header = () => {
             >
               <img 
                 src="/lovable-uploads/31c20fc6-abb9-43cf-8ee6-aa72e025d570.png" 
-                alt="BoroBros - Pioneros en Borosilicato" 
+                alt="Boro. - Pioneros en Borosilicato"
                 className="h-12 w-auto max-w-[200px] object-contain"
                 style={{ imageRendering: 'crisp-edges' }}
               />
@@ -135,7 +135,7 @@ const Header = () => {
                     <Link to="/" className="flex items-center pb-4 border-b" onClick={handleNavClick}>
                       <img 
                         src="/lovable-uploads/31c20fc6-abb9-43cf-8ee6-aa72e025d570.png" 
-                        alt="BoroBros - Pioneros en Borosilicato" 
+                        alt="Boro. - Pioneros en Borosilicato" 
                         className="h-10 w-auto max-w-[160px] object-contain"
                         style={{ imageRendering: 'crisp-edges' }}
                       />

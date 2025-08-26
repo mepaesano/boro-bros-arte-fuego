@@ -178,7 +178,7 @@ const ProductCard = ({
               12 cuotas sin interés de {formatPrice(monthlyPayment)}
             </p>
             <p className="text-xs text-tertiary font-medium mt-1">
-              Envío gratis desde $50.000
+              15% descuento con transferencia • Envío gratis desde $50.000
             </p>
           </div>
 

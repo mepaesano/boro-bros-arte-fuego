@@ -25,7 +25,7 @@ const Shop = () => {
     window.scrollTo(0, 0);
     
     trackEvent('page_view', {
-      page_title: 'Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros',
+      page_title: 'Comprar Vidrio Borosilicato en Argentina – Tienda Boro.',
       page_location: window.location.href,
       content_group1: 'Tienda'
     });
@@ -258,11 +258,11 @@ const Shop = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros</title>
+        <title>Comprar Vidrio Borosilicato en Argentina – Tienda Boro.</title>
         <meta name="description" content="Descubre nuestra selección premium de varillas de vidrio borosilicato, tubos, herramientas y accesorios para soplado artístico. Envíos gratis a todo el país en compras desde $50.000. Vidrio borosilicato Argentina, varillas de borosilicato, herramientas vidrio soplado." />
         <meta name="keywords" content="vidrio borosilicato Argentina, comprar varillas de borosilicato, herramientas vidrio soplado, tubos borosilicato, varillas coeficiente 33, soplete para vidrio, soplado artístico, lampworking Argentina, flameworking" />
         <link rel="canonical" href="https://borobros.com.ar/tienda" />
-        <meta property="og:title" content="Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros" />
+        <meta property="og:title" content="Comprar Vidrio Borosilicato en Argentina – Tienda Boro." />
         <meta property="og:description" content="Varillas, tubos y herramientas premium para soplado artístico. Calidad garantizada y envíos a todo el país." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://borobros.com.ar/tienda" />
@@ -270,7 +270,7 @@ const Shop = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Store",
-            "name": "Boro Bros",
+            "name": "Boro.",
             "description": "Tienda especializada en vidrio borosilicato y herramientas para soplado artístico",
             "url": "https://borobros.com.ar/tienda",
             "address": {
@@ -293,7 +293,7 @@ const Shop = () => {
               Catálogo Premium
             </Badge>
             <h1 className="text-4xl md:text-6xl font-heading font-bold text-primary mb-6">
-              Comprar Vidrio Borosilicato en Argentina – Tienda Boro Bros
+              Comprar Vidrio Borosilicato en Argentina – Tienda Boro.
             </h1>
             <p className="text-xl text-muted-foreground mb-6">
               Descubre nuestra selección premium de varillas de vidrio borosilicato, tubos, herramientas y accesorios para soplado artístico. Envíos gratis a todo el país en compras desde $50.000.

@@ -167,7 +167,7 @@ const MiniCart = ({ isOpen, onClose }: MiniCartProps) => {
               </div>
               
               <p className="text-xs text-muted-foreground text-center mt-3">
-                Envío gratis desde $50.000
+                15% descuento con transferencia • Envío gratis desde $50.000
               </p>
             </div>
           </>

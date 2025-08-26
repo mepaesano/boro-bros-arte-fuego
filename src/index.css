@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Boro Bros Premium Design System - Borosilicate Glass Artistry */
+/* Boro. Premium Design System - Borosilicate Glass Artistry */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Boro Bros Color Palette - Based on Logo Colors */
+    /* Boro. Color Palette - Based on Logo Colors */
     --background: 39 30% 90%; /* Beige #E9DFD3 */
     --foreground: 30 35% 18%; /* Marrón oscuro #5C3F2E */
 
